@@ -4,9 +4,23 @@ date: 2026-03-26
 draft: false
 ---
 
-GSSI summer school on **Analytic and Geometric aspects of evolutionary PDEs** school. **September 14-18, 2026**
 
-Registration and Financial Support: Registration is mandatory and available here. The GSSI offers a limited amount of financial support for students and young researchers interested in attending the school. The deadline to apply for financial support is ??? (a motivation letter and a CV to be uploaded in the registration page and a letter of recommendation to be sent directly by the recommender to patterns at gssi.it will be required).
+We are delighted to announce our upcoming school: **Analytic and Geometric Aspects of Evolutionary PDEs**.
+
+### Event Schedule
+
+    Starts: Monday, September 14, 2026, at 9:00 AM
+
+    Ends: Friday, September 18, 2026, at 11:30 AM
+
+### Registration & Financial Support
+
+Registration for the school is mandatory, and the official sign-up link will be available here shortly.
+
+GSSI is pleased to offer limited financial support to students and early-career researchers wishing to attend. If you would like to apply for funding, please prepare a CV and a motivation letter, combined into a single document, to upload during registration.
+
+Additionally, the registration form will ask you to provide the name and contact details of a referee who can supply a letter of recommendation upon request.
+
 
 
 ### Speakers
