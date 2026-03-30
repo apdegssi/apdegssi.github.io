@@ -2,10 +2,35 @@ import csv
 import json
 import os
 from datetime import datetime, timedelta
+from functools import lru_cache
+import urllib.request
 
 # Define the paths
 CSV_FILE = 'seminars.csv'
 OUTPUT_DIR = 'content/seminars'
+
+
+@lru_cache
+def get_reader_data():
+    # Your specific Google Sheet details
+    SHEET_ID = '1uyCNW7m8-qgLgDUd1FLfyARYy8C2zksQUzmI-VL9zh0'
+    GID = '0'
+
+    # The special export URL format
+    export_url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv&gid={GID}"
+
+    # Where to save the file so Hugo can use it
+    # Saving it to the 'data' folder is best practice for Hugo
+    response = urllib.request.urlopen(export_url)
+    lines = [line.decode('utf-8') for line in response.readlines()]
+
+    # 3. Pass the text lines directly into the CSV module
+    return lines
+    # reader = csv.DictReader(lines)
+    # return reader
+
+
+
 
 def place_to_link(place: str) -> str:
     """Returns a Google Maps URL based on the room name."""
@@ -33,49 +58,51 @@ def generate_mds():
     # Create the seminars folder if it doesn't exist
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    with open(CSV_FILE, mode='r', encoding='utf-8') as file:
-        reader = csv.DictReader(file)
+    # with open(CSV_FILE, mode='r', encoding='utf-8') as file:
+        # reader = csv.DictReader(file)
         
-        for row in reader:
-            # Use the helper function to get the base name
-            slug = get_slug(row['start'], row['speaker'])
-            filename = f"{slug}.md"
+    reader = csv.DictReader(get_reader_data())
+    for row in reader:
+        # print(row)
+        # Use the helper function to get the base name
+        slug = get_slug(row['start'], row['speaker'])
+        filename = f"{slug}.md"
+        
+        # Parse tags
+        tags = [tag.strip() for tag in row.get('tags', '').split(';') if tag.strip()]
+        tags_formatted = json.dumps(tags) 
+        
+        # Safely escape the abstract for the front matter!
+        raw_abstract = row.get('abstract', '')
+        abstract_safe = json.dumps(raw_abstract)
+        
+        # Get the place name and generate the Google Maps link
+        place_name = row.get('place', 'TBA')
+        place_link = place_to_link(place_name)
+        
+        filepath = os.path.join(OUTPUT_DIR, filename)
+        
+        # Write the Hugo Markdown file
+        with open(filepath, 'w', encoding='utf-8') as md_file:
+            # FRONT MATTER
+            md_file.write("---\n")
+            md_file.write(f"title: \"{row['title']}\"\n")
+            md_file.write(f"date: {row['start']}:00\n") 
+            md_file.write(f"speaker: \"{row['speaker']}\"\n")
+            md_file.write(f"place: \"{place_name}\"\n")
             
-            # Parse tags
-            tags = [tag.strip() for tag in row.get('tags', '').split(';') if tag.strip()]
-            tags_formatted = json.dumps(tags) 
-            
-            # Safely escape the abstract for the front matter!
-            raw_abstract = row.get('abstract', '')
-            abstract_safe = json.dumps(raw_abstract)
-            
-            # Get the place name and generate the Google Maps link
-            place_name = row.get('place', 'TBA')
-            place_link = place_to_link(place_name)
-            
-            filepath = os.path.join(OUTPUT_DIR, filename)
-            
-            # Write the Hugo Markdown file
-            with open(filepath, 'w', encoding='utf-8') as md_file:
-                # FRONT MATTER
-                md_file.write("---\n")
-                md_file.write(f"title: \"{row['title']}\"\n")
-                md_file.write(f"date: {row['start']}:00\n") 
-                md_file.write(f"speaker: \"{row['speaker']}\"\n")
-                md_file.write(f"place: \"{place_name}\"\n")
+            # Add the map link to front matter if it exists
+            if place_link:
+                md_file.write(f"place_url: \"{place_link}\"\n")
                 
-                # Add the map link to front matter if it exists
-                if place_link:
-                    md_file.write(f"place_url: \"{place_link}\"\n")
-                    
-                md_file.write(f"tags: {tags_formatted}\n")
-                
-                # Write the safely escaped abstract to the front matter
-                md_file.write(f"abstract: {abstract_safe}\n")
-                md_file.write("---\n\n")
-                
-                # We also leave the raw abstract in the body for the single page to render easily
-                md_file.write(f"{raw_abstract}\n")
+            md_file.write(f"tags: {tags_formatted}\n")
+            
+            # Write the safely escaped abstract to the front matter
+            md_file.write(f"abstract: {abstract_safe}\n")
+            md_file.write("---\n\n")
+            
+            # We also leave the raw abstract in the body for the single page to render easily
+            md_file.write(f"{raw_abstract}\n")
 
     print("Successfully generated clean Hugo markdown files for all seminars!")
 
@@ -84,46 +111,47 @@ def generate_calendar_events():
     start = "start"
 
     # Open your CSV file
-    with open(CSV_FILE, mode='r', encoding='utf-8') as csv_file:
-        csv_reader = csv.DictReader(csv_file)
+    # with open(CSV_FILE, mode='r', encoding='utf-8') as csv_file:
+    #     csv_reader = csv.DictReader(csv_file)
         
-        for row in csv_reader:
-            try:
-                start_str = row.get(start, '').strip()
-                end_str = row.get('end', '').strip()
+    reader = csv.DictReader(get_reader_data())
+    for row in reader:
+        try:
+            start_str = row.get(start, '').strip()
+            end_str = row.get('end', '').strip()
+            
+            if not start_str:
+                continue
                 
-                if not start_str:
-                    continue
-                    
-                start_date = datetime.strptime(start_str, "%Y-%m-%d %H:%M")
+            start_date = datetime.strptime(start_str, "%Y-%m-%d %H:%M")
 
-                if end_str:
-                    end_date = datetime.strptime(end_str, "%Y-%m-%d %H:%M")
-                else:
-                    end_date = start_date + timedelta(hours=1)
-                    end_str = end_date.strftime("%Y-%m-%d %H:%M:%S")
+            if end_str:
+                end_date = datetime.strptime(end_str, "%Y-%m-%d %H:%M")
+            else:
+                end_date = start_date + timedelta(hours=1)
+                end_str = end_date.strftime("%Y-%m-%d %H:%M:%S")
 
-                start_iso = start_date.strftime("%Y-%m-%dT%H:%M:%S")
-                end_iso = end_date.strftime("%Y-%m-%dT%H:%M:%S")
+            start_iso = start_date.strftime("%Y-%m-%dT%H:%M:%S")
+            end_iso = end_date.strftime("%Y-%m-%dT%H:%M:%S")
 
-                # Get the exact slug to build the clickable Hugo URL
-                slug = get_slug(start_str, row.get('speaker', ''))
-                speaker = row.get('speaker', '')
-                _title = row.get('title', 'TBA')
-                title = f"{speaker} - {_title}"
-                hugo_url = f"/seminars/{slug}/"
-                
-                all_events.append({
-                    "title": title,
-                    "start": start_iso,
-                    "end": end_iso,
-                    "allDay": False,
-                    "description": row.get('abstract', ''),
-                    "color": row.get('color', '#990011'),
-                    "url": hugo_url 
-                })
-            except ValueError as e:
-                print(f"Skipping row due to date formatting error ({row.get('title', 'Unknown')}): {e}")
+            # Get the exact slug to build the clickable Hugo URL
+            slug = get_slug(start_str, row.get('speaker', ''))
+            speaker = row.get('speaker', '')
+            _title = row.get('title', 'TBA')
+            title = f"{speaker} - {_title}"
+            hugo_url = f"/seminars/{slug}/"
+            
+            all_events.append({
+                "title": title,
+                "start": start_iso,
+                "end": end_iso,
+                "allDay": False,
+                "description": row.get('abstract', ''),
+                "color": row.get('color', '#990011'),
+                "url": hugo_url 
+            })
+        except ValueError as e:
+            print(f"Skipping row due to date formatting error ({row.get('title', 'Unknown')}): {e}")
 
     output_json_path = 'static/all_events.json'
     os.makedirs('static', exist_ok=True)
