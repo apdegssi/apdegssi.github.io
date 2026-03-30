@@ -9,7 +9,8 @@
     <hr>
 
     <div class="seminar-list">
-        {{ $upcomingSeminars := where .Pages "Date" ">=" now }}
+        {{ $yesterday := now.AddDate 0 0 -1 }}
+        {{ $upcomingSeminars := where .Pages "Date" ">=" $yesterday }}
         
         {{ if gt (len $upcomingSeminars) 0 }}
             
