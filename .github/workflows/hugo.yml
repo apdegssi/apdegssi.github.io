@@ -52,7 +52,7 @@ jobs:
 
       - name: Run Python script
         # ⚠️ Replace 'my_script.py' with the actual name/path of your script!
-        run: python my_script.py
+        run: python seminars.py
 
 
       - name: Setup Pages
