@@ -1,0 +1,49 @@
+{{ if in .Params.tags  "seminars" }}
+{{ else }}
+    <div class="container px-4 text-center">
+
+<div class="mycontainer-top">
+      <div class="myimage"> <img src="/gssigrande_.jpg" alt="This is my image." height="85vw"/> </div> 
+</div>
+
+      <h1>
+{{ if page.Title}}
+{{ page.Title }}
+{{ else }}
+{{ site.Title }}
+{{ end }}
+      </h1>
+
+{{ if .Params.subtitle }}
+<h2> {{ .Params.subtitle }} </h2>
+{{ end }}
+
+
+    </div>
+
+<div class="mycontainer">
+      <!-- <div class="myimage"> <img src="/gssigrande_.jpg" alt="This is my image." height="85vw"/> </div>  -->
+      <div class="myimage"> <img src="/dip_eccellenza_.jpg" alt="This is my image."  width="85vw"/> </div> 
+      <!-- <div class="myimage"> <img src="https://i.pinimg.com/564x/30/33/4c/30334cb60ebcb05da34f6fc9bd2a9d8e.jpg" alt="This is my second image." height="850px"/> </div>  -->
+      <!-- <div class="myimage"> <img src="https://i.pinimg.com/564x/af/e3/eb/afe3eb181af33e1af29ec78448631382.jpg" alt="My third image." height="850px"/> </div>  -->
+    </div>
+
+<div class="mycontainer-right">
+      <div class="myimage-right"> <img src="/marie_curie.png" alt="This is my image." width = "87vw"/> </div> 
+      <div class="myimage-right"> <img src="/erc.png" alt="This is my image."  width="85vw"/> </div> 
+    </div>
+
+<!-- <div class="relative"> -->
+<!-- <img src="/gssigrande_.jpg"> </div> <div class="row"> -->
+<!--   <div class="column"> -->
+<!-- <div class="relative"> <img src="/gssigrande_.jpg"> </div> -->
+<!--   </div> -->
+<!--   <div class="column"> -->
+<!-- <div class="relative"> <img src="/gssigrande_.jpg"> </div> -->
+<!--   </div> -->
+<!-- </div> -->
+
+
+
+
+    {{ end }}

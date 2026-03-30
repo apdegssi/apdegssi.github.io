@@ -1,0 +1,8 @@
+baseURL = 'apdegssi.github.io'
+locale = 'en-us'
+title = 'Analysis and PDE at GSSI'
+theme = 'two-line-theme'
+buildFuture = true
+
+[markup.goldmark.renderer]
+unsafe = true

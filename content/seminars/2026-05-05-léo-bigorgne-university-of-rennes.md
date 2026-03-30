@@ -1,0 +1,11 @@
+---
+title: "TBA"
+date: 2026-05-05 14:30:00
+speaker: "Léo Bigorgne (University of Rennes)"
+place: "GSSI Main Lecture Hall"
+place_url: "https://www.google.com/maps/dir//GSSI+-+Gran+Sasso+Science+Institute/@42.3448045,13.3960726"
+tags: ["spring 2026"]
+abstract: ""
+---
+
+

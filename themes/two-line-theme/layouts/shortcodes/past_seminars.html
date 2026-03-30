@@ -1,0 +1,6 @@
+{{ range where (sort .Site.RegularPages ".Params.date" "value" "desc") ".Params.tags" "in" "seminars_short" }}
+  {{ if gt now.Unix .Date.Unix }}
+    <h3> <a href="{{ substr .Permalink 0 -7 }}/">{{ .Title }} </a></h3>
+    {{ .Content }}
+  {{ end }}
+{{ end }}

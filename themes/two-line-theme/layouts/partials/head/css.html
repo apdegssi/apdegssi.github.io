@@ -1,0 +1,9 @@
+{{- with resources.Get "css/style.css" }}
+  {{- if eq hugo.Environment "development" }}
+    <link rel="stylesheet" href="{{ .Permalink }}">
+  {{- else }}
+    {{- with . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+  {{- end }}
+{{- end }}

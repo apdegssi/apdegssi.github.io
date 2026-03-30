@@ -1,0 +1,461 @@
+[
+    {
+        "title": "Gennaro Ciampa (University of L'Aquila) - Magnetic reconnection for incompressible MHD equations",
+        "start": "2024-10-03T14:30:00",
+        "end": "2024-10-03T15:30:00",
+        "allDay": false,
+        "description": "The goal of this talk is to provide examples of periodic smooth solutions of the incompressible Magnetohydrodynamics equations (MHD) for which the topology of the magnetic field lines changes under the evolution. This is known to be impossible in the non-resistive case by Alfv\u00e9n's theorem. The reconnection of the magnetic field lines occurs instead in the resistive case, being responsible for many dynamic phenomena in astrophysics such as solar flares and the solar wind. Although numerical and experimental evidence exist, analytical examples of magnetic reconnection were not known.",
+        "color": "#990011",
+        "url": "/seminars/2024-10-03-gennaro-ciampa-university-of-laquila/"
+    },
+    {
+        "title": "Andrea Marchese (University of Trento) - Closability of differential operators and structure of currents",
+        "start": "2024-10-08T14:30:00",
+        "end": "2024-10-08T15:30:00",
+        "allDay": false,
+        "description": "I will discuss recent results concerning the closability of certain directional derivative and Jacobian-type differential operators and their implications for the structure of flat chains and metric currents. Additionally, I will present a new, elementary proof of Ambrosio and Kirchhiem's flat chain conjecture, in the case of 1-dimensional currents. This conjecture asserts that metric currents in the Euclidean space correspond to Federer-Fleming flat chains. Our new proof sheds light on the obstructions that one needs to face towards a positive answer to the conjecture in full generality. This is based on joint works with G. Alberti, D. Bate, and A. Merlo.",
+        "color": "#990011",
+        "url": "/seminars/2024-10-08-andrea-marchese-university-of-trento/"
+    },
+    {
+        "title": "Filippo Giuliani (Milan Politecnico) - Sobolev norms inflation and transfers of energy in NLS equations under periodic boundary conditions",
+        "start": "2024-10-17T14:30:00",
+        "end": "2024-10-17T15:30:00",
+        "allDay": false,
+        "description": "In 2010 Colliander-Keel-Staffilani-Takaoka-Tao (Invent.Math.) proved the existence of solutions to the cubic defocusing nonlinear Schr\u00f6dinger equation on the 2-dimensional torus undergoing an arbitrarily large (but finite) growth of high order Sobolev norms. Since in the defocusing case the H^1 norm of solutions is uniformly controlled in time, the study of Sobolev norms inflation can be used to detect energy transfers to high modes (energy cascades) and, in some sense, it could be seen as a deterministic approach to the study of weak wave turbulence. The result by Colliander-Keel-Staffilani-Takaoka-Tao is based on the analysis of the resonant dynamics of the NLS equation and it cannot be applied directly when the spatial domain is an irrational torus and/or in presence of convolution potentials, because the resonant structure may drastically change in these cases. In this talk I will show how to construct, in these situations, solutions exhibiting an arbitrarily large norm inflation by using normal form methods. If time permits, I will discuss also a recent result of this type for the quantum hydrodynamic system.",
+        "color": "#990011",
+        "url": "/seminars/2024-10-17-filippo-giuliani-milan-politecnico/"
+    },
+    {
+        "title": "Adriano Pisante (Sapienza University of Rome) - Torus-like solutions for the Landau de Gennes model",
+        "start": "2024-11-07T14:30:00",
+        "end": "2024-11-07T15:30:00",
+        "allDay": false,
+        "description": "We report on some recent progress (in collaboration with F. Dipasquale and V. Millot) about the study of global minimizers of a continuum Landau-De Gennes energy functional for nematic liquid crystals in three-dimensional domains. First, we discuss absence of singularities for minimizing configurations under norm constraint, as well as absence of the isotropic phase for the unconstrained minimizers, together with the related biaxial escape phenomenon. Then, under suitable assumptions on the topology of the domain and on the Dirichlet boundary condition, we show that smoothness of energy minimizing configurations yields the emergence of nontrivial topological structure in their biaxiality level sets. Then, we discuss the previous properties under both the norm constraint and an axial symmetry constraint, showing that in this case only partial regularity is available, away from a finite set located on the symmetry axis. In addition, we show that singularities may appear due to energy efficiency and we describe precisely the asymptotic profile around singular points. Finally, in an appropriate class of domains and boundary data we obtain qualitative properties of the biaxial surfaces, showing that smooth minimizers exibit torus structure, as predicted in numerical simulations.",
+        "color": "#990011",
+        "url": "/seminars/2024-11-07-adriano-pisante-sapienza-university-of-rome/"
+    },
+    {
+        "title": "Emanuela Radici (University of L'Aquila) - Deterministic many particle limits for degenerate second order traffic models",
+        "start": "2024-11-12T14:30:00",
+        "end": "2024-11-12T15:30:00",
+        "allDay": false,
+        "description": "We study the well-posedness and the deterministic many particle limits for second order Follow-the-Leader type models involving challenging nonlinearities which naturally appear in the modelling of crowd dynamics. We aim to validate the second-order particle approach for a class of traffic models characterised by the intrinsic mechanism that the reaction-time of the drivers depends on both inertial and congestion terms. We also consider the many particle limit in the vanishing inertia regime to recover the expected transport equation with nonlinear mobility. This is a joint work with D. Mazzoleni and F. Riva.",
+        "color": "#990011",
+        "url": "/seminars/2024-11-12-emanuela-radici-university-of-laquila/"
+    },
+    {
+        "title": "Roberto Feola (Roma Tre University) - Long time dynamics of quasi-linear Hamiltonian Klein-Gordon equations",
+        "start": "2024-11-19T14:30:00",
+        "end": "2024-11-19T15:30:00",
+        "allDay": false,
+        "description": "We consider a class of Hamiltonian Klein-Gordon equations with a quasilinear, quadratic nonlinearity under periodic boundary conditions. We provide a precise description of the dynamics for an open set of small initial showing that the corresponding solutions remain close to oscillatory motions over a \"large\" time scale. The key ingredients of the proof are normal form methods, para-differential calculus and a modified energy approach.",
+        "color": "#990011",
+        "url": "/seminars/2024-11-19-roberto-feola-roma-tre-university/"
+    },
+    {
+        "title": "Federico Cacciafesta (University of Padua) - Dispersive properties of the Dirac equation",
+        "start": "2024-11-28T14:30:00",
+        "end": "2024-11-28T15:30:00",
+        "allDay": false,
+        "description": "In this talk, I shall review the main dynamical properties of the linear Dirac equation, discussing in particular the validity of linear estimates (time decay, Strichartz, local smoothing) and comparing them with the ones for the Schroedinger equation. Time permitting, we shall see how these estimates are affected by the presence of external potentials (electric or magnetic).",
+        "color": "#990011",
+        "url": "/seminars/2024-11-28-federico-cacciafesta-university-of-padua/"
+    },
+    {
+        "title": "Birgit Sch\u00f6rkhuber (University of Innsbruck) - Self-similar blowup for the 3d cubic NLS",
+        "start": "2024-12-03T14:30:00",
+        "end": "2024-12-03T15:30:00",
+        "allDay": false,
+        "description": "The cubic nonlinear Schr\u00f6dinger equation arises in various physical applications and is one of the most fundamental models in dispersive PDEs. In the three dimensional focusing case the formation of singularities via self-similar solutions has been proposed in the 70s by Zakharov in the context of plasma physics. Based on numerical experiments it is now widely believed that there is a self-similar \u201cground state\u201d solution which appears as an attractor in the time-evolution of generic large initial data. However, the existence of this (or any other finite-energy) self-similar solution has been a long-standing open problem. In this talk, I present recent joint work with Roland Donninger (University of Vienna), which proves, by using mildly computer assisted methods, the existence of a smooth finite-energy self-similar blowup solution to the 3d cubic NLS.",
+        "color": "#990011",
+        "url": "/seminars/2024-12-03-birgit-sch\u00f6rkhuber-university-of-innsbruck/"
+    },
+    {
+        "title": "Micka\u00ebl Latocca (University of \u00c9vry) - Propagation of Regularity of the Free Boundary of an Inhomogeneous Fluid Governed by the Darcy Law",
+        "start": "2024-12-10T14:00:00",
+        "end": "2024-12-10T15:00:00",
+        "allDay": false,
+        "description": "We consider a 2d fluid in the domain defined by $b(x)<y<f(t,x)$, $x\\in\\mathbb{R}^d$ where $f(t,x)$ is the free interface, and $b(x)$ the fixed bottom. We assume that the fluid is incompressible and is governed by the Darcy law. In the case of constant densities, Nguyen--Pausader proved that the interface maintains Sobolev regularity for all time (provided the Sobolev regularity is large enough). Our long-term goal is to investigate stability of the constant-density case. The purpose of this talk is twofold: first I will explain how we can rewrite our problem as a quasilinear problem (a usual procedure in this context) and spend some time explaining why such problems pose non-trivial issues such as derivative losses. Then I will use the rest of my time to explain some specific difficulties linked to non-constant densities and explain how one can achieve the first part of our program, that is short-time propagation of the initial Sobolev regularity of the free boundary. This is based on a joint work with Huy Q. Nguyen (University of Maryland).",
+        "color": "#990011",
+        "url": "/seminars/2024-12-10-micka\u00ebl-latocca-university-of-\u00e9vry/"
+    },
+    {
+        "title": "Umberto Pappalettera (Bielefeld University) - On anomalous regularity in Kraichnan\u2019s model of turbulent transport",
+        "start": "2024-12-17T14:30:00",
+        "end": "2024-12-17T15:30:00",
+        "allDay": false,
+        "description": "In this talk I will present a new \u201canomalous regularisation\u201d result for solutions of the stochastic transport equation $\\partial_t \\rho + \\circ \\partial_t W \\cdot \\nabla \\rho = 0$ on $\\mathbb{R}^d$, where W is a Gaussian, homogeneous, isotropic noise with $\\alpha$-H\\\u201dolder space regularity and compressibility ratio $\\wp < \\frac{d}{4\\alpha^2}$. The proof is obtained by studying the local behaviour around the origin of solutions to a degenerate parabolic PDE in non-divergence form, which is of independent interest. Based on joint work with Theodore Drivas and Lucio Galeati.",
+        "color": "#990011",
+        "url": "/seminars/2024-12-17-umberto-pappalettera-bielefeld-university/"
+    },
+    {
+        "title": "Jules Pitcho (Gran Sasso Science Institute) - Non-uniqueness and recovery of uniqueness: the transport equation",
+        "start": "2025-01-14T14:30:00",
+        "end": "2025-01-14T15:30:00",
+        "allDay": false,
+        "description": "In this talk, I will discuss the history of the solution theory for the transport equation along a rough vector field. In the late twentieth century, DiPerna and Lions established well-posedness for bounded weak solutions when the vector field is Sobolev, and a measure-theoretic uniqueness for the flow of Sobolev vector fields. Recent works have used convex integration to construct non-unique trajectories of Sobolev vector fields for almost every initial datum thereby showing that the measure-theoretic notion of uniqueness for the flow put forward by DiPerna and Lions is strictly weaker than point wise uniqueness of trajectories. Twenty years ago, Ambrosio proved well-posedness for bounded weak solutions when the vector field is of bounded variation. An example of Depauw then showed that this result is sharp: uniqueness of bounded weak solution is not to be expected for a general bounded vector field. But a weaker notion of uniqueness is still within reach for the Depauw vector field, and in fact for a whole class of vector field comprising it. A corresponding unique flow, stochastic in nature, also exists for such vector field. However for merely bounded vector fields, this weaker notion of uniqueness fails over a dense set.",
+        "color": "#990011",
+        "url": "/seminars/2025-01-14-jules-pitcho-gran-sasso-science-institute/"
+    },
+    {
+        "title": "Raffaele Scandone (University of Naples Federico II) - Growth of Sobolev norms for a quantum fluid system",
+        "start": "2025-01-21T14:30:00",
+        "end": "2025-01-21T15:30:00",
+        "allDay": false,
+        "description": "I will discuss the existence of weakly turbulent solutions to a quantum hydrodynamic (QHD) system, with periodic boundary conditions. A suitable nonlinear change of variables (the Madelung transform) formally connects the QHD system to a non-linear Schr\u00f6dinger (NLS) equation, for which we can construct (using a normal forms approach) smooth solutions displaying arbitrarily large growth of Sobolev norms above the energy regularity level. This amounts to a cascade in time of the energy to higher Fourier modes. In addition, these solutions can be designed to be small amplitude perturbations of plane waves, which implies in particular absence of quantum vortices. This allows to exploit an equivalence between high regularity QHD- and NLS- norms, which eventually yields the existence of weakly turbulent solutions to the QHD system. Based on joint work with F. Giuliani (Politecnico di Milano).",
+        "color": "#990011",
+        "url": "/seminars/2025-01-21-raffaele-scandone-university-of-naples-federico-ii/"
+    },
+    {
+        "title": "Federico Cacciafesta (University of Padua) - Dispersive properties of the Dirac equation",
+        "start": "2025-01-28T14:30:00",
+        "end": "2025-01-28T15:30:00",
+        "allDay": false,
+        "description": "In this talk, I shall review the main dynamical properties of the linear Dirac equation, discussing in particular the validity of linear estimates (time decay, Strichartz, local smoothing) and comparing them with the ones for the Schroedinger equation. Time permitting, we shall see how these estimates are affected by the presence of external potentials (electric or magnetic).",
+        "color": "#990011",
+        "url": "/seminars/2025-01-28-federico-cacciafesta-university-of-padua/"
+    },
+    {
+        "title": "Flavio Rossetti (Instituto Superior T\u00e9cnico) - The Strong Cosmic Censorship Conjecture in General Relativity",
+        "start": "2025-02-04T14:30:00",
+        "end": "2025-02-04T15:30:00",
+        "allDay": false,
+        "description": "The Einstein equations can be seen as a system of quasi-linear wave equations, up to the diffeomorphism invariance of their solutions. When posed as an initial value problem, their geometric nature can lead to the failure of global uniqueness of solutions without any loss of regularity. This phenomenon, which occurs in notable black hole interiors, is loosely identified with a breakdown of \"Laplacian\" determinism. The strong cosmic censorship conjecture (SCCC) posits that determinism is safe in the realm of classical general relativity: geometric extensions beyond the domain of dependence of complete initial hypersurfaces should be unstable in a suitable sense. In this talk, I will discuss modern PDE formulations of the SCCC. I will also present some recent results for a non-linear toy model describing spherically symmetric charged black holes with a positive cosmological constant, for which the $H^1$ formulation of the SCCC is actually expected to fail under appropriate conditions.",
+        "color": "#990011",
+        "url": "/seminars/2025-02-04-flavio-rossetti-instituto-superior-t\u00e9cnico/"
+    },
+    {
+        "title": "Martin Taylor (Imperial College London) - Radiative properties of collisionless matter in isolated charged systems",
+        "start": "2025-02-18T14:30:00",
+        "end": "2025-02-18T15:30:00",
+        "allDay": false,
+        "description": "The Vlasov--Poisson system describes the evolution of an ensemble of either: Electrically charged particles, interacting via an electrostatic Coulomb force; Self-gravitating particles, interacting via a Newtonian gravitational force. In 3 space dimensions, for isolated systems, dispersive solutions asymptotically exhibit logarithmically corrected linear behaviour, i.e. such solutions \"scatter'' in a modified sense (in contrast to 4 space dimensions and higher, where such solutions asymptotically behave linearly). I will discuss a new proof of well posedness of the inverse modified scattering problem: for every suitable scattering profile, there exists a solution of Vlasov--Poisson which disperses and scatters, in a modified sense, to this profile. Further, as a consequence of the proof, the solutions are shown to admit a \"polyhomogeneous expansion'', to any finite but arbitrarily high order, with coefficients given explicitly in terms of the scattering profile. I will then discuss a generalisation to the study of the electromagnetic radiation created by a collection of infalling particles in the context of the Vlasov--Maxwell system. This is joint work with Volker Schlue (Melbourne).",
+        "color": "#990011",
+        "url": "/seminars/2025-02-18-martin-taylor-imperial-college-london/"
+    },
+    {
+        "title": "Michael Goldman (CNRS/\u00c9cole Polytechnique) - On some energies penalizing oblique oscillations",
+        "start": "2025-02-25T14:30:00",
+        "end": "2025-02-25T15:30:00",
+        "allDay": false,
+        "description": "In this talk I will present some results obtained with B. Merlet in recent years on a family of energies penalizing oscillations in oblique directions. These functionals, which first appeared in the study of an isoperimetric problem with non-local interactions, can be seen as a natural extension of the Bourgain-Brezis-Mironescu energies. A central insight is that these energies actually control second order derivatives rather than first order ones. Indeed, functions of finite energy have mixed (or oblique) derivatives given by bounded measures. The main focus of the talk is the study of the rectifiability properties of these 'defect' measures. Time permitting we will draw connections with branched transportation, PDE constrained measures and Aviles-Giga type differential inclusions.",
+        "color": "#990011",
+        "url": "/seminars/2025-02-25-michael-goldman-cnrs\u00e9cole-polytechnique/"
+    },
+    {
+        "title": "Massimo Sorella (Imperial College London) - Spontaneous stochasticity for a 2d autonomous flow",
+        "start": "2025-03-04T14:30:00",
+        "end": "2025-03-04T15:30:00",
+        "allDay": false,
+        "description": "In this talk, we present a 2d autonomous divergence free velocity field in $C^\\alpha$ (for $\\alpha<1$ arbitrary but fixed) for which solutions of the advection diffusion equation exhibit anomalous dissipation for some initial data. The proof relies on proving spontaneous stochasticity using a stochastic Lagrangian approach. This is a joint work with C. Johansson.",
+        "color": "#990011",
+        "url": "/seminars/2025-03-04-massimo-sorella-imperial-college-london/"
+    },
+    {
+        "title": "Matthew Schrecker (University of Bath) - Stability of gravitational collapse",
+        "start": "2025-03-13T14:30:00",
+        "end": "2025-03-13T15:30:00",
+        "allDay": false,
+        "description": "In the Newtonian setting, a star is modelled as a spherically symmetric gas obeying the compressible Euler-Poisson system. In certain regimes, smooth initial data may give rise to blow-up solutions, corresponding to the collapse of a star under its own gravity, and such solutions have been rigorously constructed in recent years. In this talk, I will present the nonlinear stability of the simplest of these blow-up profiles, the Larson- Penston solution to the Euler-Poisson equations. This is based on joint works with Yan Guo, Mahir Hadzic, and Juhi Jang.",
+        "color": "#990011",
+        "url": "/seminars/2025-03-13-matthew-schrecker-university-of-bath/"
+    },
+    {
+        "title": "Lucio Galeati (University of L'Aquila) - A.e. uniqueness for (stochastic) Lagrangian trajectories for Leray solutions to 3D Navier-Stokes",
+        "start": "2025-03-18T14:30:00",
+        "end": "2025-03-18T15:30:00",
+        "allDay": false,
+        "description": "We revisit a result due to Robinson and Sadowski (2009), who first showed a.e. uniqueness of Lagrangian trajectories for admissible weak solutions to $3$D Navier-Stokes, for sufficiently regular $u_0$. We give an alternative proof, based on a newly established asymmetric Lusin-Lipschitz property of Leray solutions, exploited crucially in the arguments from Caravenna-Crippa (2021) and Bru\u00e9-Colombo-De Lellis (2021). This approach is more robust, requiring no assumptions on $u_0$ and being applicable also to the stochastic characteristics of the system. Finally, if $u_0$ is regular (say $u_0\\in H^{1/2}$), then we are able to exploit the diffusive behaviour of stochastic trajectories to further prove that, for any fixed $x_0\\in\\mathbb{R}^d$, path-by-path uniqueness for the SDE $d X_t = u(t,X_t) d t + d B_t, X|_t=0 = x_0$. Based on the preprint arXiv:2406.12788.",
+        "color": "#990011",
+        "url": "/seminars/2025-03-18-lucio-galeati-university-of-laquila/"
+    },
+    {
+        "title": "Rita Teixeira da Costa (University of Cambridge) - The Maxwell equations on the full Kerr black hole family",
+        "start": "2025-03-25T14:30:00",
+        "end": "2025-03-25T15:30:00",
+        "allDay": false,
+        "description": "We discuss a proof of uniform boundedness and decay statements for solutions to the Maxwell equations on Kerr black holes. The proof is unconditional in the full subextremal |a|<M family, and relies on earlier joint work with Yakov Shlapentokh-Rothman. For extremal |a|=M Kerr, it is conditional on a conjecture for the spin \u00b11 Teukolsky equations motivated by work of Gajic and Casals\u2014Gralla\u2014Zimmerman. This is joint work with Gabriele Benomio (GSSI).",
+        "color": "#990011",
+        "url": "/seminars/2025-03-25-rita-teixeira-da-costa-university-of-cambridge/"
+    },
+    {
+        "title": "Alexey Cheskidov (Westlake University) - Energy cascade in fluids: from convex integration to mixing",
+        "start": "2025-03-28T14:30:00",
+        "end": "2025-03-28T15:30:00",
+        "allDay": false,
+        "description": "In the past couple of decades, mathematical fluid dynamics has made significant strides with numerous constructions of solutions to fluid equations that exhibit pathological or wild behaviors. These include the loss of the energy balance, non-uniqueness, singularity formation, and dissipation anomaly. Interesting from the mathematical point of view, providing counterexamples to various well-posedness results in supercritical spaces, such constructions are becoming more and more relevant from the physical point of view as well. Indeed, a fundamental physical property of turbulent flows is the existence of the energy cascade. Conjectured by Kolmogorov, it has been observed both experimentally and numerically, but had been difficult to produce analytically. In this talk I will overview new developments in discovering not only pathological mathematically, but also physically realistic solutions of fluid equations.",
+        "color": "#990011",
+        "url": "/seminars/2025-03-28-alexey-cheskidov-westlake-university/"
+    },
+    {
+        "title": "Mimi Dai (University of Illinois at Chicago) - Ill-posedness and singularity formation scenarios for MHD",
+        "start": "2025-03-28T15:30:00",
+        "end": "2025-03-28T16:30:00",
+        "allDay": false,
+        "description": "We will discuss some constructions for MHD models which produce solutions with either ill-posedness behavior or developing singularity in finite time.",
+        "color": "#990011",
+        "url": "/seminars/2025-03-28-mimi-dai-university-of-illinois-at-chicago/"
+    },
+    {
+        "title": "Theodore Drivas (Stony Brook University) - Vibrodynamics of constrained mechanical systems (Part I)",
+        "start": "2025-04-23T14:30:00",
+        "end": "2025-04-23T15:30:00",
+        "allDay": false,
+        "description": "We study the effect of rapid vibration of constraining surfaces of arbitrary codimension on a confined mechanical particle. The slow dynamics experience an effective potential force coming from the geometry of the vibrating surface, which can introduce new equilibria and change stability character of existing ones. A classical example is Kapitza's stabilization of the inverted pendulum with a vibrating pivot. After developing this formalism for finite dimensional systems, we generalize to infinite dimensions by analogy and study the resulting vibrogenic forces for inextensible threads and incompressible fluids. The thread effectively becomes elastic, and the fluid evolves as a variant of the incompressible inhomogeneous system. This is joint work with D. Glukhovskiy.",
+        "color": "#990011",
+        "url": "/seminars/2025-04-23-theodore-drivas-stony-brook-university/"
+    },
+    {
+        "title": "Theodore Drivas (Stony Brook University) - Vibrodynamics of constrained mechanical systems (Part II)",
+        "start": "2025-04-24T11:00:00",
+        "end": "2025-04-24T12:00:00",
+        "allDay": false,
+        "description": "We study the effect of rapid vibration of constraining surfaces of arbitrary codimension on a confined mechanical particle. The slow dynamics experience an effective potential force coming from the geometry of the vibrating surface, which can introduce new equilibria and change stability character of existing ones. A classical example is Kapitza's stabilization of the inverted pendulum with a vibrating pivot. After developing this formalism for finite dimensional systems, we generalize to infinite dimensions by analogy and study the resulting vibrogenic forces for inextensible threads and incompressible fluids. The thread effectively becomes elastic, and the fluid evolves as a variant of the incompressible inhomogeneous system. This is joint work with D. Glukhovskiy.",
+        "color": "#990011",
+        "url": "/seminars/2025-04-24-theodore-drivas-stony-brook-university/"
+    },
+    {
+        "title": "Boris Khesin (University of Toronto) - Hamiltonian geometry and the golden ratio in the Euler hydrodynamics",
+        "start": "2025-05-27T16:15:00",
+        "end": "2025-05-27T17:15:00",
+        "allDay": false,
+        "description": "The binormal (or vortex filament) equation provides the localized induction approximation of the 3D incompressible Euler equation. We present a Hamiltonian framework for the binormal equation in higher-dimensions and its explicit solutions that collapse in finite time. In 2D we observe a curious appearance of the golden ratio in the motion of point vortices in the plane. This is a joint work with C. Yang and H. Wang.",
+        "color": "#990011",
+        "url": "/seminars/2025-05-27-boris-khesin-university-of-toronto/"
+    },
+    {
+        "title": "Th\u00e9ophile Dolmaire (University of L'Aquila) - An Alexander\u2019s theorem for inelastic hard spheres",
+        "start": "2025-10-14T14:30:00",
+        "end": "2025-10-14T15:30:00",
+        "allDay": false,
+        "description": "When studying interacting particle systems, the very first step before any qualitative analysis is to establish the well-posedness of the dynamics of the system. In the case of hard spheres, whose trajectories are piecewise affine, the singularities arising at collision times prevent the direct use of Cauchy-Lipschitz-type of arguments. This issue was addressed by Alexander (1975) in the elastic case, where the kinetic energy is conserved during the collisions. For dissipative systems, the question remains largely open, due to the possibility that infinitely many collisions take place in finite time, a phenomenon known as inelastic collapse. We will discuss the case of a particular class of inelastic hard sphere systems, in which a fixed amount of kinetic energy is lost in each sufficiently energetic collision. The results were obtained in collaboration with Juan J. L. Vel\u00e1zquez (Universit\u00e4t Bonn), and may be found in the preprint arXiv:2403.02162v2.",
+        "color": "#990011",
+        "url": "/seminars/2025-10-14-th\u00e9ophile-dolmaire-university-of-laquila/"
+    },
+    {
+        "title": "Bj\u00f6rn Gebhard (University of M\u00fcnster) - The Rayleigh-Taylor instability with local energy dissipation",
+        "start": "2025-10-21T14:30:00",
+        "end": "2025-10-21T15:30:00",
+        "allDay": false,
+        "description": "We consider the inhomgeneous incompressible Euler equations describing two fluids with different constant densities under the influence of gravity. Initially the fluids are supposed to be at rest and separated by a flat horizontal interface with the heavier fluid being on top of the lighter one. Due to gravity this configuration is unstable, the two fluids begin to mix in a more and more turbulent way. This is one of the most classical instances of the Rayleigh-Taylor instability. In the talk we will see how weak locally dissipative solutions to the Euler equations reflecting a turbulent mixing of the two fluids in a quadratically growing zone can be constructed. If time allows, we will discuss an arising selection problem for the averaged motion of solutions. The core of the talk is based on a joint work with J\u00f3zsef Kolumb\u00e1n.",
+        "color": "#990011",
+        "url": "/seminars/2025-10-21-bj\u00f6rn-gebhard-university-of-m\u00fcnster/"
+    },
+    {
+        "title": "Serena Federico (University of Bologna) - Smoothing estimates for third order equations with variable coefficients",
+        "start": "2025-10-28T14:30:00",
+        "end": "2025-10-28T15:30:00",
+        "allDay": false,
+        "description": "In this talk, we establish local smoothing estimates for a class of third-order pseudo-differential operators with variable coefficients, which, in particular, includes operators of KdV type. After introducing the main structural properties of these operators, we will outline the key ingredients of the proof, namely Doi\u2019s lemma and suitable energy estimates. We will then present a local well-posedness result that follows from the smoothing effect. This talk is based on joint work with D. Tramontana.",
+        "color": "#990011",
+        "url": "/seminars/2025-10-28-serena-federico-university-of-bologna/"
+    },
+    {
+        "title": "Vikram Giri (ETH Zurich) - Non-conservation of (generalized) helicity in the incompressible Euler equations",
+        "start": "2025-11-04T14:30:00",
+        "end": "2025-11-04T15:30:00",
+        "allDay": false,
+        "description": "We begin with a discussion of the helicity which is a conserved integral quantity for the Euler equations. We then discuss Nash iteration schemes for the Euler equations and discuss the difficulties associated with defining helicity for such low-regularity, weak solutions. We'll then present forthcoming work that generalizes the helicity and constructs solutions of the Euler equations with a prescribed helicity profile, demonstrating its non-conservation. Based on joint work with Hyunju Kwon and Matthew Novack.",
+        "color": "#990011",
+        "url": "/seminars/2025-11-04-vikram-giri-eth-zurich/"
+    },
+    {
+        "title": "Matteo Nesi (University of Basel) - Uniqueness for the continuity equation on bounded domains",
+        "start": "2025-11-11T14:30:00",
+        "end": "2025-11-11T15:30:00",
+        "allDay": false,
+        "description": "Uniqueness for weak solutions of the continuity equation on the torus or in the Euclidean space goes back to the theory of Di Perna and Lions for Sobolev vector fields and to Ambrosio in the BV case. In presence of a boundary, the vector field is required to be tangent to it: the usual weak formulation of this condition is not strong enough to ensure uniqueness, while a different notion of \"normal trace\" suffices. Here we want to compare the two notions of normal trace and explain why one of them is more suitable in our case.",
+        "color": "#990011",
+        "url": "/seminars/2025-11-11-matteo-nesi-university-of-basel/"
+    },
+    {
+        "title": "Jonas L\u00fchrmann (University of Cologne) - Asymptotic stability of the sine-Gordon kink outside symmetry",
+        "start": "2025-11-18T14:30:00",
+        "end": "2025-11-18T15:30:00",
+        "allDay": false,
+        "description": "We consider scalar field theories on the line with Ginzburg-Landau (double-well) self-interaction potentials. Prime examples include the \\phi^4 model and the sine-Gordon model. These models feature simple examples of topological solitons called kinks. The study of their asymptotic stability leads to a rich class of problems owing to the combination of weak dispersion in one space dimension, low power nonlinearities, and intriguing spectral features of the linearized operators such as threshold resonances or internal modes. We present a perturbative proof of the full asymptotic stability of the sine-Gordon kink outside symmetry under small perturbations in weighted Sobolev norms. The strategy of our proof combines a space-time resonances approach based on the distorted Fourier transform to capture modified scattering effects with modulation techniques to take into account the invariance under Lorentz transformations and under spatial translations. A major difficulty is the slow local decay of the radiation term caused by the threshold resonances of the non-selfadjoint linearized matrix operator around the modulated kink. Our analysis hinges on two remarkable null structures that we uncover in the quadratic nonlinearities of the evolution equation for the radiation term as well as of the modulation equations. The entire framework of our proof, including the systematic development of the distorted Fourier theory, is general and not specific to the sine-Gordon model. We conclude with a discussion of potential applications in the generic setting (no threshold resonances) and with a discussion of the outstanding challenges posed by internal modes such as in the well-known \\phi^4 model. This is joint work with Gong Chen (GeorgiaTech).",
+        "color": "#990011",
+        "url": "/seminars/2025-11-18-jonas-l\u00fchrmann-university-of-cologne/"
+    },
+    {
+        "title": "Davide Carazzato (University of Vienna) - A strong quantitative isoperimetric inequality for a capillarity problem",
+        "start": "2025-11-25T14:30:00",
+        "end": "2025-11-25T15:30:00",
+        "allDay": false,
+        "description": "During the seminar, we will introduce a stronger version of the quantitative isoperimetric inequality, originally developed by Fusco and Julin. Building on that, we will arrive to the analogous inequality for a capillarity problem using the so-called selection principle, based on the regularity theory for the perimeter functional. We will also highlight the difficulties that arise when we apply Fusco and Julin's method to our situation. This result was obtained in collaboration with Giulio Pascale and Marco Pozzetta.",
+        "color": "#990011",
+        "url": "/seminars/2025-11-25-davide-carazzato-university-of-vienna/"
+    },
+    {
+        "title": "Eliot Pacherie (CNRS/CYU) - Stability results for the Gross-Pitaevskii equation",
+        "start": "2025-12-02T14:30:00",
+        "end": "2025-12-02T15:30:00",
+        "allDay": false,
+        "description": "Gross-Pitaevskii is a dispersive equation that describes the behavior of superfluids and superconductors. Its dispersive estimates are worse than those for Schr\u00f6dinger, which leads to difficulties when studying stability problems. In this talk, we present recent progress on these questions, in particular concerning the stability of vortices, which are stationary solutions of this equation.",
+        "color": "#990011",
+        "url": "/seminars/2025-12-02-eliot-pacherie-cnrscyu/"
+    },
+    {
+        "title": "Roberta Bianchini (CNR/IAC) - Stratified steady states of the IPM equation",
+        "start": "2025-12-09T14:30:00",
+        "end": "2025-12-09T15:30:00",
+        "allDay": false,
+        "description": "After introducing the Incompressible Porous Media (IPM) equation and its stratified steady states, I will present a recent result - obtained in collaboration with Jo, Park, and Wang - on the sharp asymptotic stability of IPM near stable stratified density profiles. This result is sharp in that it resolves the gap between small-data global well-posedness and strong ill-posedness for IPM in the vicinity of stable stratified states, and it exploits the variational structure underlying the dynamics.",
+        "color": "#990011",
+        "url": "/seminars/2025-12-09-roberta-bianchini-cnriac/"
+    },
+    {
+        "title": "Gianmarco Caldini (University of Trento) - On regularity theory for generalized surfaces",
+        "start": "2026-01-13T14:30:00",
+        "end": "2026-01-13T15:30:00",
+        "allDay": false,
+        "description": "The natural question of how much smoother integral currents are with respect to their initial definition goes back to the late 1950s and to the origin of the theory with the seminal article of Federer and Fleming. In this seminar I will explain how closely one can approximate an integral current representing a given homology class by a smooth submanifold. Part of what will be discussed is derived from a joint study with William Browder and Camillo De Lellis, and builds on earlier preliminary work by the former author together with Frederick Almgren.",
+        "color": "#990011",
+        "url": "/seminars/2026-01-13-gianmarco-caldini-university-of-trento/"
+    },
+    {
+        "title": "Mahdi Haghshenas (Imperial College London) - Boundedness and decay of waves on decelerated FLRW spacetimes",
+        "start": "2026-01-27T14:30:00",
+        "end": "2026-01-27T15:30:00",
+        "allDay": false,
+        "description": "After outlining the stability problem for Friedmann\u2013Lema\u00eetre\u2013Robertson\u2013Walker (FLRW) spacetimes, we study the wave equation\u2014as a proxy for the Einstein equations\u2014on decelerated FLRW spacetimes with non-compact, flat spatial sections. We demonstrate how dispersion and expansion affect the long-time behaviour of waves. In particular, we present uniform energy bounds and integrated local energy decay estimates across the full decelerated expansion range. Furthermore, we describe a hierarchy of r-weighted energy estimates, in the spirit of the Dafermos\u2013Rodnianski method, which lead to energy decay estimates.",
+        "color": "#990011",
+        "url": "/seminars/2026-01-27-mahdi-haghshenas-imperial-college-london/"
+    },
+    {
+        "title": "Gianluca Crippa (University of Basel) - Anomalous dissipation in fluid dynamics",
+        "start": "2026-01-27T16:00:00",
+        "end": "2026-01-27T17:00:00",
+        "allDay": false,
+        "description": "The celebrated Kolmogorov's K41 theory of fully developed turbulence attempts to explain and quantify \"wild, but typical\" behaviors of \"chaotic\" fluids, most notably the lack of conservation of the total energy. The loss of energy is not due to friction between fluid molecules, but rather to the limited regularity of the flow. Kolmogorov's theory is numerically and experimentally validated to a very large extent, however, very little is known in rigorous mathematical terms. In my lecture, I will present some aspects of Kolmogorov's theory, and illustrate recent results on a related question for the linear advection equation.",
+        "color": "#990011",
+        "url": "/seminars/2026-01-27-gianluca-crippa-university-of-basel/"
+    },
+    {
+        "title": "Dragos Iftimie (University of Lyon) - Energy decay for 2D micropolar fluids",
+        "start": "2026-01-29T14:30:00",
+        "end": "2026-01-29T15:30:00",
+        "allDay": false,
+        "description": "We consider fluids where the particles possess a microstructure (micropolar flows) and are allowed to rotate in a two-dimensional setting. We find the asymptotic profile of the solution as the time goes to infinity. We deduce the remarkable fact that the large time behavior only depends on the kinematic viscosity, and not on the other parameters of the model (vortex-viscosity, spin viscosity and gyroviscosity). Our primary tool is a new enstrophy-like identity of independent interest, involving the difference between the fluid vorticity and the micro-angular velocity. This is joint work with L. Brandolese, V. Busuioc and C. F. Perusato.",
+        "color": "#990011",
+        "url": "/seminars/2026-01-29-dragos-iftimie-university-of-lyon/"
+    },
+    {
+        "title": "Luca Talamini (SISSA) - Some results on L^\u221e entropy solutions to systems of two conservation laws",
+        "start": "2026-02-10T14:30:00",
+        "end": "2026-02-10T15:30:00",
+        "allDay": false,
+        "description": "The pioneering work of Tartar and DiPerna established the existence of entropy solutions to systems of two conservation laws in the L^\u221e setting by adapting the compensated compactness method. However, no regularity properties are known for these solutions. As a first step in this direction, we discuss a Liouville-type theorem for isentropic solutions of 2\u00d72 genuinely nonlinear systems, together with some of its applications. The arguments are based on a kinetic formulation and on a Lagrangian representation at the kinetic level. Joint work with F. Ancona and E. Marconi.",
+        "color": "#990011",
+        "url": "/seminars/2026-02-10-luca-talamini-sissa/"
+    },
+    {
+        "title": "Gemma Hood (Leipzig University) - A scattering construction for nonlinear wave equations on Kerr-Anti de Sitter spacetimes",
+        "start": "2026-02-17T14:30:00",
+        "end": "2026-02-17T15:30:00",
+        "allDay": false,
+        "description": "Given the sharp logarithmic decay of linear waves on the Kerr-AdS black hole (Holzegel, Smulevici, 2013), it is expected that the Kerr-AdS spacetime is unstable as a solution of the Einstein vacuum equations. However, the scattering construction presented here for exponentially decaying nonlinear waves on a fixed Kerr-AdS background serves as a first step to confronting the scattering problem for the full Einstein system. In this context, one may hope to derive a class of perturbations of Kerr-AdS which remain \u2018close\u2019 and dissipate sufficiently fast.",
+        "color": "#990011",
+        "url": "/seminars/2026-02-17-gemma-hood-leipzig-university/"
+    },
+    {
+        "title": "\u00d3scar Dom\u00ednguez (CUNEF University) - Uniqueness of transport equations via extrapolation",
+        "start": "2026-03-03T14:30:00",
+        "end": "2026-03-03T15:30:00",
+        "allDay": false,
+        "description": "We propose a novel extrapolation approach to uniqueness of weak solutions for a wide class of transport equations. In particular, this unifies and extends the classical works of Yudovich and Vishik on 2D Euler equations for incompressible fluid flows with associated nearly bounded and BMO vorticities, respectively.",
+        "color": "#990011",
+        "url": "/seminars/2026-03-03-\u00f3scar-dom\u00ednguez-cunef-university/"
+    },
+    {
+        "title": "Federico Luigi Dipasquale (Scuola Superiore Meridionale) - The formation of gradient-driven singular structures of codimension one and two in 2D: The case study of ferronematics",
+        "start": "2026-03-10T14:30:00",
+        "end": "2026-03-10T15:30:00",
+        "allDay": false,
+        "description": "We consider a variational model for ferronematics---composite materials formed by dispersing magnetic nanoparticles into a liquid crystal matrix. The model features two coupled order parameters: a Landau-de Gennes Q-tensor for the liquid crystal component and a magnetisation vector field M, both of them governed by a Ginzburg-Landau-type energy. The energy includes a singular coupling term favouring alignment between Q and M. We report on some recent results on the asymptotic behaviour of (not necessarily minimising) critical points as a small parameter $\\eps$ tends to zero. Our main results show that the energy concentrates along distinct singular sets: the (rescaled) energy density for the Q-component concentrates, to leading order, on a finite number of singular points, while the energy density for the M-component concentrates along a one-dimensional rectifiable set. Moreover, we will see that the curvature of the singular set for the M-component (technically, the first variation of the associated varifold) is concentrated on a finite number of points, i.e. the singular set for the Q-component. Joint work with G. Canevari (University of Verona) and B. Stroffolini (University of Naples \"Federico II\").",
+        "color": "#990011",
+        "url": "/seminars/2026-03-10-federico-luigi-dipasquale-scuola-superiore-meridionale/"
+    },
+    {
+        "title": "Ayman Said (CNRS/LMR) - Generic small-scale creation in the two-dimensional Euler equation",
+        "start": "2026-03-17T14:30:00",
+        "end": "2026-03-17T15:30:00",
+        "allDay": false,
+        "description": "In this talk I will present a recent result in collaboration with Thomas Alazard (CNRS-\u00c9cole Polytechnique). While it is well known that the Cauchy problem for the two-dimensional incompressible Euler equation is globally well-posed for smooth initial data, we show that for a dense $G_\\delta$ set of initial data, the solutions lose regularity in infinite time, thereby confirming a long-standing conjecture of Yudovich in the smooth setting.",
+        "color": "#990011",
+        "url": "/seminars/2026-03-17-ayman-said-cnrslmr/"
+    },
+    {
+        "title": "Tim Heilman (TU Munich) - Gamma-convergence of a nonlocal Modica-Mortola type energy",
+        "start": "2026-03-17T16:00:00",
+        "end": "2026-03-17T17:00:00",
+        "allDay": false,
+        "description": "In this talk we will present a Gamma-convergence result for a nonlocal critically scaled Modica-Mortola type energy. We first review some basic facts about Modica-Mortola type energy functionals and known results and then focus on explaining some of the ideas which allow to show Gamma-convergence with a geometric argument.",
+        "color": "#990011",
+        "url": "/seminars/2026-03-17-tim-heilman-tu-munich/"
+    },
+    {
+        "title": "Sam Krupa (ENS Paris) - Are L^\u221e solutions to hyperbolic systems of conservation laws unique?",
+        "start": "2026-03-24T14:30:00",
+        "end": "2026-03-24T15:30:00",
+        "allDay": false,
+        "description": "For hyperbolic systems of conservation laws in 1-D, fundamental questions about uniqueness and blow up of weak solutions still remain even for the apparently \u201csimple\u201d systems of two conserved quantities such as isentropic Euler and the p-system. Similarly, in the multi-dimensional case, a longstanding open question has been the uniqueness of weak solutions with initial data corresponding to the compressible vortex sheet. We address all of these questions by using the lens of convex integration, a general method of constructing highly irregular and non-unique solutions to PDEs. Our proofs involve computer-assistance. This talk is based on joint work with L\u00e1szl\u00f3 Sz\u00e9kelyhidi, Jr.",
+        "color": "#990011",
+        "url": "/seminars/2026-03-24-sam-krupa-ens-paris/"
+    },
+    {
+        "title": "Christof Sparber (University of Illinois at Chicago) - Nonlinear bound states with prescribed angular momentum",
+        "start": "2026-03-26T14:30:00",
+        "end": "2026-03-26T15:30:00",
+        "allDay": false,
+        "description": "We prove the existence of a class of orbitally stable bound state solutions to nonlinear Schr\u00f6dinger equations with super-quadratic confinement in two and three spatial dimensions. These solutions are given by time-dependent rotations of a non-radially symmetric spatial profile which in itself is obtained via a doubly constrained energy minimization. One of the two constraints imposed is the total mass, while the other is given by the expectation value of the angular momentum around the z-axis. Our approach also allows for a new description of the set of minimizers subject to only a single mass constraint. This is joint work with I. Nenciu and X. Shen.",
+        "color": "#990011",
+        "url": "/seminars/2026-03-26-christof-sparber-university-of-illinois-at-chicago/"
+    },
+    {
+        "title": "Rossella Giorgio (TU Wien) - TBA",
+        "start": "2026-04-08T16:00:00",
+        "end": "2026-04-08T17:00:00",
+        "allDay": false,
+        "description": "",
+        "color": "#990011",
+        "url": "/seminars/2026-04-08-rossella-giorgio-tu-wien/"
+    },
+    {
+        "title": "Elias D\u00f6hrer (TU Chemnitz) - TBA",
+        "start": "2026-04-14T14:30:00",
+        "end": "2026-04-14T15:30:00",
+        "allDay": false,
+        "description": "TBA",
+        "color": "#990011",
+        "url": "/seminars/2026-04-14-elias-d\u00f6hrer-tu-chemnitz/"
+    },
+    {
+        "title": "L\u00e9o Bigorgne (University of Rennes) - TBA",
+        "start": "2026-05-05T14:30:00",
+        "end": "2026-05-05T15:30:00",
+        "allDay": false,
+        "description": "",
+        "color": "#990011",
+        "url": "/seminars/2026-05-05-l\u00e9o-bigorgne-university-of-rennes/"
+    },
+    {
+        "title": "Keefer Rowan (EPFL) - TBA",
+        "start": "2026-05-12T14:30:00",
+        "end": "2026-05-12T15:30:00",
+        "allDay": false,
+        "description": "",
+        "color": "#990011",
+        "url": "/seminars/2026-05-12-keefer-rowan-epfl/"
+    },
+    {
+        "title": "Daniele Valtorta (University of Milan-Bicocca) - TBA",
+        "start": "2026-05-19T14:30:00",
+        "end": "2026-05-19T15:30:00",
+        "allDay": false,
+        "description": "",
+        "color": "#990011",
+        "url": "/seminars/2026-05-19-daniele-valtorta-university-of-milanbicocca/"
+    }
+]

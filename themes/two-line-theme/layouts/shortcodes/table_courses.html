@@ -1,0 +1,31 @@
+{{ $num_courses :=  len (where .Site.Pages  ".Params.tags" "in" "course") }}
+{{ $column_num := 2 }}
+{{ $column_len := (add (math.Div $num_courses $column_num) 1) }}
+{{ $courses := sort (where .Site.Pages  ".Params.tags" "in" "course") "LinkTitle" }}
+<div class="data-table" >
+ <table class="transpose" style="margin-top: -1rem;margin-bottom: 2rem;margin-left:-10rem ">
+  <thead>
+      <tr>
+          {{ range seq $column_len }}
+          <th style="text-align: left"></th>
+          {{ end }}
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+{{ range $index, $element := $courses }}
+{{ if (modBool (add $index 1) $column_len) }}
+<td style="text-align: left"> <a href="{{ .LinkTitle }}">{{ .Params.author }}</a></td>
+</tr>
+<tr>
+{{ else }}
+<td style="text-align: left"> <a href="{{ .LinkTitle }}">{{ .Params.author }}</a></td>
+{{ end }}
+{{ end }}
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<br>
+<br>

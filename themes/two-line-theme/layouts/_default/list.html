@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="orange-title-strip">
+    <h1>{{ .Title }}</h1>
+</div>
+    
+    <ul>
+        {{ range .Pages }}
+            <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+        {{ end }}
+    </ul>
+{{ end }}

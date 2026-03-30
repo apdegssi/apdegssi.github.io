@@ -1,0 +1,5 @@
+{{ range where (sort .Site.Pages ".Params.date") ".Params.tags" "in" "seminars" }}
+  {{ if gt .Date.Unix now.Unix }}
+    {{ .Content }}
+  {{ end }}
+{{ end }}

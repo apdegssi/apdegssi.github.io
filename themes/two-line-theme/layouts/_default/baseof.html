@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+</head>
+<body>
+
+    <nav class="two-line-navbar" id="navbar">
+      <div class="top-nav">
+            <div class="home-link">
+                <a href="/">
+                    <img src="/images/logo.png" alt="Company Logo" class="brand-logo">
+                    Home
+                </a>
+            </div>
+            
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="/location/">Location</a></li>
+                <li class="dropdown">
+                    <a href="/seminars/" class="dropbtn">Seminars ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/past-seminars/">Past Seminars</a>
+                    </div>
+                </li>
+                <li><a href="/schools/">Schools</a></li>
+                <li><a href="/calendar/">Calendar</a></li>
+                <li><a href="/travel/">Travel</a></li>
+                <!-- <li><a href="/contact/">Contact</a></li> -->
+            </ul>
+        </div>
+        
+      {{ if in .RelPermalink "/schools" }}
+        <div class="bottom-nav">
+            <ul class="sub-nav-links">
+                <li><a href="#web">Register</a></li>
+                <li><a href="#seo">Timetable</a></li>
+                <!-- <li><a href="#marketing">Digital Marketing</a></li> -->
+                <!-- <li><a href="#support">IT Support</a></li> -->
+            </ul>
+        </div>
+        {{ end }}
+    </nav>
+
+    <main style="padding: 40px;">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navbar = document.getElementById('navbar');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

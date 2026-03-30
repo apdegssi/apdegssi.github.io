@@ -1,0 +1,25 @@
+<center>
+<table>
+{{ range where  (sort .Site.Pages "LinkTitle") ".Params.tags" "in" "course" }}
+  <tr>
+    <td align="right">
+      {{ .Params.begin }}-{{ .Params.end }}
+    </td>
+    <td>
+      <a href="{{ .Permalink }}"> {{ .Params.author }}</a>
+    </td>
+  </tr>
+{{ end }}
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

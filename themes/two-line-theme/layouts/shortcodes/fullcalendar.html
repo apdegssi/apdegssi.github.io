@@ -1,0 +1,133 @@
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+<link rel='stylesheet' href='https://fullcalendar.io/releases/core/4.2.0/main.min.css'>
+<link rel='stylesheet' href='https://fullcalendar.io/releases/daygrid/4.2.0/main.min.css'>
+<link rel='stylesheet' href='https://fullcalendar.io/releases/timegrid/4.2.0/main.min.css'>
+<link rel='stylesheet' href='https://fullcalendar.io/releases/list/4.2.0/main.min.css'>
+  
+<div id="fullcalendar"></div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js'></script>
+<script src='https://fullcalendar.io/releases/core/4.2.0/main.min.js'></script>
+<script src='https://fullcalendar.io/releases/daygrid/4.2.0/main.min.js'></script>
+<script src='https://fullcalendar.io/releases/timegrid/4.2.0/main.min.js'></script>
+<script src='https://fullcalendar.io/releases/list/4.2.0/main.min.js'></script>
+
+<script id="rendered-js" >
+"use strict";
+
+function strToDT(dt, add_days=0) {
+  let d = new Date(Date.parse(dt));
+  d.setDate(d.getDate() + add_days);
+  return d
+}
+
+function getMinMaxDate(fixedDate) {
+    const today = new Date();
+    const fixed = new Date(fixedDate);
+
+    // Get the maximum (latest) date
+    const maxDate = today > fixed ? today : fixed;
+
+    // Format to YYYY-MM-DD
+    return maxDate.toISOString().split('T')[0];
+}
+
+var events = [
+    {
+        daysOfWeek: [0, 6],
+        rendering: "background",
+        color: "#eee",
+        overLap: false,
+        allDay: false
+    },
+
+    // >>>>>>>>>>>>>>>>>>>>>> FOR1
+{{ range where  (sort .Site.Pages "LinkTitle") ".Params.tags" "in" "workshop" }}
+    { 
+      title: '{{ .Title }}',
+      start: strToDT("{{ .Params.begin }} 2025 10:00:00"),  
+      end: strToDT("{{ .Params.end }} 2025 23:00:00", 1),
+      allDay: true,
+      description: 'workshop',
+      color: '#2F3C7E',
+      url: "{{ .Permalink }}"
+     },
+{{ end }}
+    // <<<<<<<<<<<<<<<<<<<<<< FOR1
+
+    // >>>>>>>>>>>>>>>>>>>>>> FOR2
+{{ range where  (sort .Site.Pages "LinkTitle") ".Params.tags" "in" "a_s_w" }}
+    { 
+      {{ if in .Params.speaker "**" }}
+      title: '<strong>{{ .Params.calendar_speaker}}</strong>',
+      {{ else }}
+      title: '{{ .Params.speaker }}',
+      {{ end }}
+      start: strToDT("{{ .Params.begin }}"),  
+      end: strToDT("{{ .Params.end }}", 0),
+      allDay: false,
+      description: '{{ .Title }}',
+      color: '#2F3C7E',
+      url: "{{ .Permalink }}"
+     },
+{{ end }}
+    // <<<<<<<<<<<<<<<<<<<<<< FOR2
+
+    // >>>>>>>>>>>>>>>>>>>>>> FOR3
+    // <<<<<<<<<<<<<<<<<<<<<< FOR3
+];
+
+$(function () {
+    var calendarEl = document.getElementById("fullcalendar");
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: ["dayGrid", "timeGrid", "list", "interaction"],
+        themeSystem: "standard",
+        eventOrder: "start,title,-duration",
+        header: {
+            left: "prev,next, today",
+            center: "title",
+            right: 'dayGridMonth,listMonth'
+        },
+        defaultDate: getMinMaxDate("2025-04-01"),
+        defaultView: "dayGridMonth",
+        firstDay: 1,
+        eventLimit: false,
+        displayEventEnd: true,
+        
+        // This combines your Hugo events array and the JSON generated from the CSV
+        eventSources: [
+            events,
+            '/all_events.json'
+        ],
+
+         eventTimeFormat: {
+            hour: '2-digit',
+            minute: '2-digit',
+            meridiem: false,
+            hour12: false
+          },
+        droppable: true,
+        eventResizableFromStart: true,
+        eventResizableFromEnd: true,
+        eventDurationEditable: true,
+        eventRender: function (info) {
+
+            if (info.view.type !== "listMonth") {
+                info.el.querySelectorAll('.fc-title')[0].innerHTML = info.el.querySelectorAll('.fc-title')[0].innerText;
+
+                let eventEl = info.el.querySelector(".fc-content");
+                let eventID = info.event.extendedProps.issueKey;
+                if (!eventID || !eventEl)
+                    return;
+                let link = document.createElement("a");
+                link.innerHTML = eventID;
+                link.classList.add("float-right");
+                eventEl.appendChild(link);
+            }
+        }
+    });
+    calendar.render();
+});
+//# sourceURL=pen.js
+</script>

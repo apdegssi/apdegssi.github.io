@@ -1,0 +1,112 @@
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    }
+  };
+</script>
+
+<input type="text" id="searchInput" placeholder="Search seminars...">
+
+<select id="tag-filter">
+    <option value="">All Tags</option>
+    {{ $pastSeminars := where (where .Site.RegularPages "Section" "seminars") ".Date.Unix" "<" now.Unix }}
+    {{ $tags := slice }}
+    
+    {{ range $pastSeminars }}
+        {{ range .Params.tags }}
+            {{ $tags = $tags | append (title .) }}
+        {{ end }}
+    {{ end }}
+    
+    {{/* --- TEMPORAL SORTING LOGIC STARTS HERE --- */}}
+    {{ $temporalTags := slice }}
+    {{ range (uniq $tags) }}
+        {{ $weight := 0 }}
+        {{ $parts := split . " " }}
+        
+        {{ if eq (len $parts) 2 }}
+            {{ $season := index $parts 0 }}
+            {{ $year := index $parts 1 }}
+            
+            {{ $seasonWeight := 0 }}
+            {{ if eq $season "Spring" }}{{ $seasonWeight = 1 }}{{ end }}
+            {{ if eq $season "Summer" }}{{ $seasonWeight = 2 }}{{ end }}
+            {{ if eq $season "Fall" }}{{ $seasonWeight = 3 }}{{ end }}
+            {{ if eq $season "Winter" }}{{ $seasonWeight = 4 }}{{ end }}
+            
+            {{ $weight = add (mul (int $year) 10) $seasonWeight }}
+        {{ end }}
+        
+        {{ $temporalTags = $temporalTags | append (dict "name" . "weight" $weight) }}
+    {{ end }}
+    
+    {{ range sort $temporalTags "weight" "desc" }}
+        <option value="{{ .name }}">{{ .name }}</option>
+    {{ end }}
+    {{/* --- TEMPORAL SORTING LOGIC ENDS HERE --- */}}
+</select>
+
+<table id="seminarsTable">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Speaker</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{ range $pastSeminars }}
+        {{ $rowTags := slice }}
+        {{ range .Params.tags }}
+            {{ $rowTags = $rowTags | append (title .) }}
+        {{ end }}
+        
+      <tr data-tags="{{ delimit $rowTags `,` }}">
+            <td>{{ .Date.Format "Jan 02, 2006 at 15:04" }}</td>
+            <td>{{ .Params.speaker }}</td>
+            <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
+        </tr>
+    {{ end }}
+    </tbody>
+</table>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const tagFilter = document.getElementById('tag-filter');
+    const table = document.getElementById('seminarsTable');
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+    function filterTable() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedTag = tagFilter.value;
+
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            
+            // 1. Check if the row text matches the search box
+            const textContent = row.textContent.toLowerCase();
+            const matchesSearch = textContent.includes(searchTerm);
+            
+            // 2. Check if the row tags match the dropdown
+            const rowTags = row.getAttribute('data-tags') || "";
+            const tagsArray = rowTags.split(',');
+            const matchesTag = (selectedTag === "") || tagsArray.includes(selectedTag);
+
+            // 3. Show the row ONLY if it matches BOTH the search and the tag filter
+            if (matchesSearch && matchesTag) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    }
+
+    // Listen for typing in the search box OR changing the dropdown
+    searchInput.addEventListener('input', filterTable);
+    tagFilter.addEventListener('change', filterTable);
+});
+</script>
