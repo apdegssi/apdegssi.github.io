@@ -4,6 +4,9 @@ import os
 from datetime import datetime, timedelta
 from functools import lru_cache
 import urllib.request
+import subprocess
+
+
 
 # Define the paths
 CSV_FILE = 'seminars.csv'
@@ -162,5 +165,6 @@ def generate_calendar_events():
     print(f"Success! {len(all_events)} seminars exported to {output_json_path}.")
 
 if __name__ == "__main__":
+    _ = subprocess.run("rm content/seminars/20*", shell=True)
     generate_mds()
     generate_calendar_events()
