@@ -9,9 +9,8 @@ We are delighted to announce our upcoming school: **Analytic and Geometric Aspec
 
 ### Event Schedule
 
-    Starts: Monday, September 14, 2026, at 9:00 AM
-
-    Ends: Friday, September 18, 2026, at 11:30 AM
+* Starts: Monday, September 14, 2026, at 9:00 AM
+* Ends: Friday, September 18, 2026, at 11:30 AM
 
 ### Registration & Financial Support
 
