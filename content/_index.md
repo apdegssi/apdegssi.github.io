@@ -4,4 +4,8 @@ draft = false
 +++
 
 ### Members
-Paolo Antonelli, Gabriele Benomio, Sara Daneri, Camillo De Lellis, Luigi De Rosa, Pierangelo Marcati, Stefano Modena, Jules Pitcho, Flavio Rossetti, Eris Runa
+#### Faculty
+Paolo Antonelli, Gabriele Benomio, Sara Daneri, Camillo De Lellis, Luigi De Rosa, Pierangelo Marcati, Stefano Modena, Eris Runa
+<br>
+#### PostDocs
+Jules Pitcho, Flavio Rossetti 
