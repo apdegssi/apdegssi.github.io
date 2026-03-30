@@ -19,7 +19,7 @@ We are delighted to announce our upcoming school: **Analytic and Geometric Aspec
 
 Registration for the school is mandatory, and the official sign-up link will be available here shortly.
 
-GSSI is pleased to offer limited financial support to students and early-career researchers wishing to attend. If you would like to apply for funding, please prepare a CV and a motivation letter, combined into a single document, to upload during registration.
+The GSSI offers limited financial support to students and early-career researchers wishing to attend. If you would like to apply for funding, please prepare a CV and a motivation letter, combined into a single document, to upload during registration.
 
 Additionally, the registration form will ask you to provide the name and contact details of a referee who can supply a letter of recommendation upon request.
 
