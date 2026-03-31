@@ -2,6 +2,9 @@
 title: "Analytic and Geometric aspects of evolutionary PDEs"
 date: 2026-03-26
 draft: false
+aliases:
+  - /school2026/
+  - /school/
 ---
 
 

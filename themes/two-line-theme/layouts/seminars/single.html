@@ -1,4 +1,3 @@
-
 {{ define "main" }}
 <script>
   MathJax = {
@@ -11,14 +10,85 @@
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
+<style>
+  .seminar-details-container {
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+  
+  .seminar-button {
+    background-color: #007bff; /* Nice clean blue */
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border-radius: 6px;
+    cursor: pointer;
+    list-style: none; /* Hides the default arrow */
+    
+    /* 👇 The magic for a full-width button 👇 */
+    display: block; 
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center; 
+    /* 👆 --------------------------------- 👆 */
+
+    transition: background 0.2s ease;
+  }
+  
+  /* Hides the default arrow in Safari/Chrome */
+  .seminar-button::-webkit-details-marker {
+    display: none; 
+  }
+  
+  .seminar-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .seminar-dropdown {
+    text-align: left; /* Keeps the expanded text readable */
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+    line-height: 1.6;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+</style>
+
 <div class="orange-title-strip">
     <h1>{{ .Title }}</h1>
 </div>
 
-
-
-
 <div class="page-content">
+    
+    <details class="seminar-details-container">
+      <summary class="seminar-button">
+        <strong>Schedule</strong>
+      </summary>
+      
+      <div class="seminar-dropdown">
+        <ul>
+          {{ with .Params.speaker }}
+            <li><strong>Speaker:</strong> {{ . }}</li>
+          {{ end }}
+
+          {{ with .Date }}
+            <li><strong>Time:</strong> {{ .Format "Monday, January 2, 2006 at 15:04" }}</li>
+          {{ end }}
+
+          {{ with .Params.place }}
+            <li><strong>Location:</strong> 
+              {{ if $.Params.place_url }}
+                <a href="{{ $.Params.place_url }}" target="_blank" rel="noopener noreferrer">{{ . }}</a>
+              {{ else }}
+                {{ . }}
+              {{ end }}
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </details>
     {{ .Content }}
 </div>
 {{ end }}
