@@ -1,4 +1,4 @@
-baseURL = 'apdegssi.github.io'
+baseURL = 'apdegssi.github.io/'
 locale = 'en-us'
 title = 'Analysis and PDE at GSSI'
 theme = 'two-line-theme'
