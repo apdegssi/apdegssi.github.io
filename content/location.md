@@ -10,7 +10,7 @@ draft = false
 * [Canteen](https://www.google.com/maps/dir//Mensa+Consiglio+Regionale+d'Abruzzo/@42.3452024,13.3963741) Participants and GSSI staff and students can access the Canteen either before 12:30 or after 13:30.
 
 ##### **Useful information**
-* The courses will take place in the Main Lecture Hall of [GSSI Aurora Building](https://www.google.com/maps/dir//GSSI+-+Gran+Sasso+Science+Institute/@42.3448045,13.3960726). A working/discussion room in the same building, called "Saletta Vetrata", will be available to registered students/postdocs. 
+* The courses of the summer school and most of the Analysis and PDE seminars will take place in the Main Lecture Hall of [GSSI Aurora Building](https://www.google.com/maps/dir//GSSI+-+Gran+Sasso+Science+Institute/@42.3448045,13.3960726). A working/discussion room in the same building, called "Saletta Vetrata", will be available to registered students/postdocs. 
 * A working/discussion room located on the first floor of [GSSI Zenith Building](https://www.google.com/maps/dir//Gran+Sasso+Science+Institute+(Ex-INPS+Building)/@42.3452616,13.3175938) (Room P1.16) is open to all registered participants. The room is equipped with a blackboard, two whiteboards, tables and sofas/chairs. 
 
 
