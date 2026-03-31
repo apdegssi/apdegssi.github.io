@@ -32,12 +32,12 @@ width="90%"
 The closest international airports are [Fiumicino Airport](https://www.adr.it/web/aeroporti-di-roma-en)
  and [Ciampino Airport](https://www.adr.it/web/aeroporti-di-roma-en/pax-cia-ciampino). 
  
- Direct buses are available from Fiumicino and Ciampino airports ([GASPARI](https://www.gasparionline.it/en/) or [FLIXBUS](https://global.flixbus.com)) 
+ Direct buses are available from Fiumicino airport ([GASPARI](https://www.gasparionline.it/en/) or [FLIXBUS](https://global.flixbus.com))  and Ciampino airport ([GASPARI](https://www.gasparionline.it/en/)).
  In L'Aquila they stop at ex Hotel Amiternum (My Suite Hotel) and from there you can take a taxi to reach the centre of L'Aquila (from 7.30 am to 12 pm, at a cost of about 10/15 euros).
 
 #### Fiumicino bus station
 
-After arriving to Fiumicino Airport you can get the bus to l'Aquila from the bus Terminal
+In Fiumicino Arport the bus terminal to L'Aquila is located here:
 [Get directions in Google Map](https://www.google.com/maps/dir//Rome+Fiumicino+Airport+Terminal+3,+Via+dell'Aeroporto+di+Fiumicino,+320,+00054+Fiumicino+RM,+Italy/@41.7939524,12.2489403,17z/data=!3m1!5s0x1325fa0ac56f2643:0xb22ccd0fd772f008!4m9!4m8!1m0!1m5!1m1!1s0x1325fa7491f862f9:0x64d5de105eb204d7!2m2!1d12.2501391!2d41.7945045!3e2?entry=ttu&g_ep=EgoyMDI1MDEwNi4xIKXMDSoASAFQAw%3D%3D)
 
 {{< figure src="/fig_fiumicino.png" 
