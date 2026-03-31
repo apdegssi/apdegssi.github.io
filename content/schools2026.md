@@ -4,9 +4,8 @@ date: 2026-03-26
 draft: false
 aliases:
   - /school2026/
-  - /school/
+  - /schools/
 ---
-
 
 Summer school on **Analytic and Geometric Aspects of Evolutionary PDEs**. The poster of the school can be found [here](/postergssi2026.jpeg)
 
