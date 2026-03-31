@@ -5,7 +5,7 @@ draft: false
 ---
 
 
-We are delighted to announce our upcoming school: **Analytic and Geometric Aspects of Evolutionary PDEs**.
+Summer school on **Analytic and Geometric Aspects of Evolutionary PDEs**.
 
 ### Event Schedule
 
@@ -17,11 +17,11 @@ We are delighted to announce our upcoming school: **Analytic and Geometric Aspec
 
 ### Registration & Financial Support
 
-Registration for the school is mandatory, and the official sign-up link will be available here shortly.
+Registration for the school is mandatory, and the official registration link will be available here shortly.
 
-The GSSI offers limited financial support to students and early-career researchers wishing to attend. If you would like to apply for funding, please prepare a CV and a motivation letter, combined into a single document, to upload during registration.
+GSSI offers limited financial support to students and early-career researchers wishing to attend. During the application for funding, you will be asked to upload a CV and a motivation letter, combined into a single document.
 
-Additionally, the registration form will ask you to provide the name and contact details of a referee who can supply a letter of recommendation upon request.
+Additionally, you will be ask you to provide the name and contact details of a referee who can supply a letter of recommendation upon request.
 
 
 
