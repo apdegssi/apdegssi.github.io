@@ -12,14 +12,14 @@
 
 <style>
   .seminar-details-container {
-    margin-bottom: 30px;
-    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
   }
   
   .seminar-button {
     background-color: #007bff; /* Nice clean blue */
     color: #ffffff;
-    padding: 12px 24px;
+    padding: 3px 5px;
     font-size: 1.1em;
     border-radius: 6px;
     cursor: pointer;
@@ -57,8 +57,16 @@
 </style>
 
 <div class="orange-title-strip">
-    <h1>{{ .Title }}</h1>
+    <h2>{{ .Title }}</h2>
+
+<center>
+<h5 style="text-align: center; color: #f1effd;">
+<!-- <h5> -->
+    By {{ .Params.Speaker }}
+    </h5>
+</center>
 </div>
+
 
 <div class="page-content">
     
@@ -69,9 +77,6 @@
       
       <div class="seminar-dropdown">
         <ul>
-          {{ with .Params.speaker }}
-            <li><strong>Speaker:</strong> {{ . }}</li>
-          {{ end }}
 
           {{ with .Date }}
             <li><strong>Time:</strong> {{ .Format "Monday, January 2, 2006 at 15:04" }}</li>
