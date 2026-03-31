@@ -5,7 +5,7 @@ draft: false
 ---
 
 
-Summer school on **Analytic and Geometric Aspects of Evolutionary PDEs**.
+Summer school on **Analytic and Geometric Aspects of Evolutionary PDEs**. The poster of the school can be found [here](/postergssi2026.jpeg)
 
 ### Event Schedule
 
