@@ -4,7 +4,7 @@ date: 2026-03-10 14:30:00
 speaker: "Federico Luigi Dipasquale (Scuola Superiore Meridionale)"
 place: "GSSI Main Lecture Hall"
 place_url: "https://www.google.com/maps/dir//GSSI+-+Gran+Sasso+Science+Institute/@42.3448045,13.3960726"
-tags: ["spring 2026"]
+tags: ["Spring 2026"]
 abstract: "We consider a variational model for ferronematics---composite materials formed by dispersing magnetic nanoparticles into a liquid crystal matrix. The model features two coupled order parameters: a Landau-de Gennes Q-tensor for the liquid crystal component and a magnetisation vector field M, both of them governed by a Ginzburg-Landau-type energy. The energy includes a singular coupling term favouring alignment between Q and M. We report on some recent results on the asymptotic behaviour of (not necessarily minimising) critical points as a small parameter $\\eps$ tends to zero. Our main results show that the energy concentrates along distinct singular sets: the (rescaled) energy density for the Q-component concentrates, to leading order, on a finite number of singular points, while the energy density for the M-component concentrates along a one-dimensional rectifiable set. Moreover, we will see that the curvature of the singular set for the M-component (technically, the first variation of the associated varifold) is concentrated on a finite number of points, i.e. the singular set for the Q-component. Joint work with G. Canevari (University of Verona) and B. Stroffolini (University of Naples \"Federico II\")."
 ---
 

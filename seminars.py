@@ -68,6 +68,11 @@ def generate_mds():
     for row in reader:
         # print(row)
         # Use the helper function to get the base name
+
+        speaker = row.get('speaker', '')
+        if not speaker.strip():
+            continue
+
         slug = get_slug(row['start'], row['speaker'])
         filename = f"{slug}.md"
         
@@ -140,6 +145,10 @@ def generate_calendar_events():
             # Get the exact slug to build the clickable Hugo URL
             slug = get_slug(start_str, row.get('speaker', ''))
             speaker = row.get('speaker', '')
+
+            if not speaker.strip():
+                continue
+
             _title = row.get('title', 'TBA')
             title = f"{speaker} - {_title}"
             hugo_url = f"/seminars/{slug}/"

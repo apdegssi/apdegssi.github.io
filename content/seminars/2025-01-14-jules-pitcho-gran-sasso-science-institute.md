@@ -4,7 +4,7 @@ date: 2025-01-14 14:30:00
 speaker: "Jules Pitcho (Gran Sasso Science Institute)"
 place: "GSSI Main Lecture Hall"
 place_url: "https://www.google.com/maps/dir//GSSI+-+Gran+Sasso+Science+Institute/@42.3448045,13.3960726"
-tags: ["spring 2025"]
+tags: ["Spring 2025"]
 abstract: "In this talk, I will discuss the history of the solution theory for the transport equation along a rough vector field. In the late twentieth century, DiPerna and Lions established well-posedness for bounded weak solutions when the vector field is Sobolev, and a measure-theoretic uniqueness for the flow of Sobolev vector fields. Recent works have used convex integration to construct non-unique trajectories of Sobolev vector fields for almost every initial datum thereby showing that the measure-theoretic notion of uniqueness for the flow put forward by DiPerna and Lions is strictly weaker than point wise uniqueness of trajectories. Twenty years ago, Ambrosio proved well-posedness for bounded weak solutions when the vector field is of bounded variation. An example of Depauw then showed that this result is sharp: uniqueness of bounded weak solution is not to be expected for a general bounded vector field. But a weaker notion of uniqueness is still within reach for the Depauw vector field, and in fact for a whole class of vector field comprising it. A corresponding unique flow, stochastic in nature, also exists for such vector field. However for merely bounded vector fields, this weaker notion of uniqueness fails over a dense set."
 ---
 
