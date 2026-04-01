@@ -1,25 +1,14 @@
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
-<link rel='stylesheet' href='https://fullcalendar.io/releases/core/4.2.0/main.min.css'>
-<link rel='stylesheet' href='https://fullcalendar.io/releases/daygrid/4.2.0/main.min.css'>
-<link rel='stylesheet' href='https://fullcalendar.io/releases/timegrid/4.2.0/main.min.css'>
-<link rel='stylesheet' href='https://fullcalendar.io/releases/list/4.2.0/main.min.css'>
-  
+<script src="/js/vendor/fullcalendar-6.1.15.min.js"></script>
+
 <div id="fullcalendar"></div>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js'></script>
-<script src='https://fullcalendar.io/releases/core/4.2.0/main.min.js'></script>
-<script src='https://fullcalendar.io/releases/daygrid/4.2.0/main.min.js'></script>
-<script src='https://fullcalendar.io/releases/timegrid/4.2.0/main.min.js'></script>
-<script src='https://fullcalendar.io/releases/list/4.2.0/main.min.js'></script>
-
-<script id="rendered-js" >
+<script id="rendered-js">
 "use strict";
 
 function strToDT(dt, add_days=0) {
   let d = new Date(Date.parse(dt));
   d.setDate(d.getDate() + add_days);
-  return d
+  return d;
 }
 
 function getMinMaxDate(fixedDate) {
@@ -36,9 +25,9 @@ function getMinMaxDate(fixedDate) {
 var events = [
     {
         daysOfWeek: [0, 6],
-        rendering: "background",
+        display: "background", // v6 change: 'rendering' is now 'display'
         color: "#eee",
-        overLap: false,
+        overlap: false,        // fixed capitalization
         allDay: false
     },
 
@@ -72,27 +61,31 @@ var events = [
       url: "{{ .Permalink }}"
      },
 {{ end }}
-    // <<<<<<<<<<<<<<<<<<<<<< FOR2
-
-    // >>>>>>>>>>>>>>>>>>>>>> FOR3
-    // <<<<<<<<<<<<<<<<<<<<<< FOR3
 ];
 
-$(function () {
+// v6 change: Replace jQuery $(function() {}) with native DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById("fullcalendar");
+    
     var calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: ["dayGrid", "timeGrid", "list", "interaction"],
+        // v6 change: plugins array is no longer needed with index.global.min.js
         themeSystem: "standard",
         eventOrder: "start,title,-duration",
-        header: {
-            left: "prev,next, today",
+        
+        // v6 change: 'header' is now 'headerToolbar'
+        headerToolbar: {
+            left: "prev,next today", 
             center: "title",
             right: 'dayGridMonth,listMonth'
         },
-        defaultDate: getMinMaxDate("2025-04-01"),
-        defaultView: "dayGridMonth",
+        
+        // v6 changes: 'defaultDate' -> 'initialDate', 'defaultView' -> 'initialView'
+        initialDate: getMinMaxDate("2025-04-01"),
+        initialView: "dayGridMonth",
         firstDay: 1,
-        eventLimit: false,
+        
+        // v6 change: 'eventLimit' is now 'dayMaxEvents'
+        dayMaxEvents: false,
         displayEventEnd: true,
         
         // This combines your Hugo events array and the JSON generated from the CSV
@@ -108,25 +101,35 @@ $(function () {
             hour12: false
           },
         droppable: true,
-        eventResizableFromStart: true,
-        eventResizableFromEnd: true,
+        editable: true, // Recommended in v6 to allow resizing/dragging
         eventDurationEditable: true,
-        eventRender: function (info) {
-
+        
+        // v6 change: 'eventRender' is replaced by 'eventDidMount'
+        eventDidMount: function (info) {
             if (info.view.type !== "listMonth") {
-                info.el.querySelectorAll('.fc-title')[0].innerHTML = info.el.querySelectorAll('.fc-title')[0].innerText;
+                
+                // 1. Convert HTML tags in the title (like your <strong> tags)
+                // v6 class changed from .fc-title to .fc-event-title
+                let titleEl = info.el.querySelector('.fc-event-title');
+                if (titleEl && titleEl.innerText.includes('<')) {
+                    titleEl.innerHTML = titleEl.innerText;
+                }
 
-                let eventEl = info.el.querySelector(".fc-content");
+                // 2. Append the custom IssueKey link
+                // v6 class changed from .fc-content to .fc-event-main
+                let eventMain = info.el.querySelector(".fc-event-main");
                 let eventID = info.event.extendedProps.issueKey;
-                if (!eventID || !eventEl)
-                    return;
-                let link = document.createElement("a");
-                link.innerHTML = eventID;
-                link.classList.add("float-right");
-                eventEl.appendChild(link);
+                
+                if (eventID && eventMain) {
+                    let link = document.createElement("a");
+                    link.innerHTML = eventID;
+                    link.classList.add("float-right");
+                    eventMain.appendChild(link);
+                }
             }
         }
     });
+    
     calendar.render();
 });
 //# sourceURL=pen.js
