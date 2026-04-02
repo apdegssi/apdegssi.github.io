@@ -1,17 +1,5 @@
 {{ define "main" }}
 
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true
-    }
-  };
-</script>
-
-<script id="MathJax-script" async src="/js/vendor/mathjax/tex-chtml.js"></script>
-
 <style>
   .seminar-details-container {
     margin-bottom: 5px;
@@ -57,6 +45,11 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   }
 </style>
+
+{{ if .Params.mathjax }}
+{{ partial "math.html" }}
+{{ end }}
+
 
 <div class="orange-title-strip">
     <h2>{{ .Title }}</h2>

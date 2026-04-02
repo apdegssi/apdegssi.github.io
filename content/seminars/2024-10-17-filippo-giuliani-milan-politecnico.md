@@ -3,6 +3,7 @@ title: "Sobolev norms inflation and transfers of energy in NLS equations under p
 date: 2024-10-17 14:30:00
 speaker: "Filippo Giuliani (Milan Politecnico)"
 place: "GSSI Main Lecture Hall"
+mathjax: true
 place_url: "https://www.google.com/maps/dir//GSSI+-+Gran+Sasso+Science+Institute/@42.3448045,13.3960726"
 tags: ["Fall 2024"]
 abstract: "In 2010 Colliander-Keel-Staffilani-Takaoka-Tao (Invent.Math.) proved the existence of solutions to the cubic defocusing nonlinear Schr\u00f6dinger equation on the 2-dimensional torus undergoing an arbitrarily large (but finite) growth of high order Sobolev norms. Since in the defocusing case the H^1 norm of solutions is uniformly controlled in time, the study of Sobolev norms inflation can be used to detect energy transfers to high modes (energy cascades) and, in some sense, it could be seen as a deterministic approach to the study of weak wave turbulence. The result by Colliander-Keel-Staffilani-Takaoka-Tao is based on the analysis of the resonant dynamics of the NLS equation and it cannot be applied directly when the spatial domain is an irrational torus and/or in presence of convolution potentials, because the resonant structure may drastically change in these cases. In this talk I will show how to construct, in these situations, solutions exhibiting an arbitrarily large norm inflation by using normal form methods. If time permits, I will discuss also a recent result of this type for the quantum hydrodynamic system."

@@ -13,6 +13,18 @@
         {{ $upcomingSeminars := where .Pages "Date" ">=" $yesterday }}
         
         {{ if gt (len $upcomingSeminars) 0 }}
+
+
+            {{ range $upcomingSeminars.ByDate }}
+            {{ if .Params.mathjax }}
+            {{ partial "math.html" }}
+            {{ break }}
+            {{ end }}
+            {{ end }}
+
+
+
+
             
             {{ range $upcomingSeminars.ByDate }}
                 <div class="seminar-card" style="margin-bottom: 24px;">

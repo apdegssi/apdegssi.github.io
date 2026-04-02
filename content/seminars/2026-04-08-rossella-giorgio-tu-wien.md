@@ -1,11 +1,12 @@
 ---
-title: "TBA"
+title: "Nonlocal analysis of energies in Micromagnetics"
 date: 2026-04-08 16:00:00
 speaker: "Rossella Giorgio (TU Wien)"
 place: "GSSI Main Lecture Hall"
+mathjax: true
 place_url: "https://www.google.com/maps/dir//GSSI+-+Gran+Sasso+Science+Institute/@42.3448045,13.3960726"
 tags: ["Spring 2026"]
-abstract: ""
+abstract: "In this talk, we present conditions that formally justify a nonlocal analysis of energies in Micromagnetics. Specifically, we first consider a nonlocal-to-local approximation of exchange energy functionals, extending the well-known Bourgain-Brezis-Mironescu formula to encompass the scenario where antisymmetric contributions are encoded. The key points are a pointwise convergence result and a \u0393-convergence argument. Building upon a tailored notion of two-scale convergence, a variational limit of the nonlocal energies in the context of composite ferromagnetic materials can also be obtained, and, time permitting, we briefly review it. After the nonlocal approximation, we investigate the existence and qualitative properties of minimizers, focusing on the competition between a nonlocal symmetric exchange interaction, which penalizes spatial variations in magnetization, and a magnetostatic self-energy term that accounts for long-range dipolar interactions. For spherical domains, we generalize the so-called Brown\u2019s fundamental theorem by identifying critical radii such that uniform magnetizations are preferable for the small-body regime, while non-uniform magnetization configurations become dominant in the large-body regime."
 ---
 
-
+In this talk, we present conditions that formally justify a nonlocal analysis of energies in Micromagnetics. Specifically, we first consider a nonlocal-to-local approximation of exchange energy functionals, extending the well-known Bourgain-Brezis-Mironescu formula to encompass the scenario where antisymmetric contributions are encoded. The key points are a pointwise convergence result and a Γ-convergence argument. Building upon a tailored notion of two-scale convergence, a variational limit of the nonlocal energies in the context of composite ferromagnetic materials can also be obtained, and, time permitting, we briefly review it. After the nonlocal approximation, we investigate the existence and qualitative properties of minimizers, focusing on the competition between a nonlocal symmetric exchange interaction, which penalizes spatial variations in magnetization, and a magnetostatic self-energy term that accounts for long-range dipolar interactions. For spherical domains, we generalize the so-called Brown’s fundamental theorem by identifying critical radii such that uniform magnetizations are preferable for the small-body regime, while non-uniform magnetization configurations become dominant in the large-body regime.
