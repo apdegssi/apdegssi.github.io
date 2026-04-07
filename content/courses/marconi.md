@@ -1,5 +1,5 @@
 +++
 title = "TBA"
-author = "Elio Marconi"
+speaker = "Elio Marconi"
 draft = false
 +++

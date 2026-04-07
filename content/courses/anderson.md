@@ -1,5 +1,5 @@
 +++
 title = "TBA"
-author = "John Anderson"
+speaker = "John Anderson"
 draft = false
 +++

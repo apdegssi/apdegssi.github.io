@@ -1,5 +1,5 @@
 +++
 title = "TBA"
-author = "Tarek Elgindi"
+speaker = "Tarek Elgindi"
 draft = false
 +++
