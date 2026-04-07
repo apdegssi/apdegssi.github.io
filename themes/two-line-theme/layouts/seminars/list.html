@@ -58,7 +58,7 @@
                             
                             {{/* 3. If the abstract is longer than 250 characters, cut it off and add the link */}}
                             {{ if gt (len $abstractText) 250 }}
-                                {{ $abstractText | truncate 700 "..." }}
+                                {{ $abstractText | truncate 600 "..." }}
                                 <a href="{{ .Permalink }}" style="color: #0056b3; font-weight: 600; text-decoration: none; margin-left: 5px;">
                                     Read full abstract &rarr;
                                 </a>

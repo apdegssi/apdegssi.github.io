@@ -49,6 +49,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12' # Uses a modern, stable version of Python
+          # cache: 'pip' # SPEED IMPROVEMENT: Caches python packages
+
+      # --- NEW STEP: Install your dependencies ---
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
 
       - name: Run Python script
         # ⚠️ Replace 'my_script.py' with the actual name/path of your script!

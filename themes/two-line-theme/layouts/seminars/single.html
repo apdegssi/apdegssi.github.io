@@ -62,6 +62,7 @@
 </center>
 </div>
 
+{{ $yesterday := now.AddDate 0 0 -1 }}
 
 <div class="page-content">
     
@@ -86,6 +87,21 @@
               {{ end }}
             </li>
           {{ end }}
+
+
+          {{ if gt  .Params.Date.Unix  $yesterday }}
+          {{ with .Params.share }}
+            <li><strong>Share:</strong> 
+              {{ if $.Params.share }}
+                <a href="{{ $.Params.share }}" target="_blank" rel="noopener noreferrer">Via Email</a>
+              {{ else }}
+                {{ . }}
+              {{ end }}
+            </li>
+          {{ end }}
+          {{ end }}
+          
+
         </ul>
       </div>
     </details>

@@ -1,18 +1,110 @@
 import csv
+import codecs
+import re
 import json
 import os
 from datetime import datetime, timedelta
 from functools import lru_cache
 import urllib.request
+import urllib.parse
 import subprocess
-
-
-
+from dateutil.parser import parse
 # Define the paths
 CSV_FILE = 'seminars.csv'
 OUTPUT_DIR = 'content/seminars'
+BASE_URL = "https://apdegssi.github.io"
 
-import re
+
+
+
+def decode_unicode(text):
+    if not text: return text
+    try: return codecs.decode(text, 'unicode_escape')
+    except Exception: return text
+
+def get_ordinal_suffix(day):
+    if 11 <= (day % 100) <= 13: return 'th'
+    return {1: 'st', 2: 'nd', 3: 'rd'}.get(day % 10, 'th')
+
+def generate_mailto_url(speaker, title, abstract, dt_object, location, info_url, to_email=""):
+    """Returns ONLY the raw, encoded mailto string with dynamic subject warnings."""
+    speaker = decode_unicode(speaker)
+    title = decode_unicode(title)
+
+    # 1. Check for standard schedule/location
+    unusual_aspects = []
+    if dt_object.weekday() != 1: unusual_aspects.append("DAY")
+    if not (dt_object.hour == 14 and dt_object.minute == 30): unusual_aspects.append("TIME")
+    if location.strip() != "GSSI Main Lecture Hall": unusual_aspects.append("LOCATION")
+        
+    # 2. Format the warning list cleanly (e.g., "DAY", "DAY & TIME", "DAY, TIME & LOCATION")
+    if unusual_aspects:
+        if len(unusual_aspects) == 1:
+            aspect_str = unusual_aspects[0]
+        elif len(unusual_aspects) == 2:
+            aspect_str = f"{unusual_aspects[0]} & {unusual_aspects[1]}"
+        else:
+            aspect_str = f"{unusual_aspects[0]}, {unusual_aspects[1]} & {unusual_aspects[2]}"
+            
+        body_warning = f"PLEASE NOTE THE UNUSUAL {aspect_str}\n\n"
+        subject_warning = f" (UNUSUAL {aspect_str})"
+    else:
+        body_warning = ""
+        subject_warning = ""
+
+    # 3. Format dates and times for BODY
+    date_str_body = dt_object.strftime("%B %d, %Y")
+    start_time_body = dt_object.strftime("%I:%M%p").lower().lstrip('0')
+    end_time = (dt_object + timedelta(hours=1)).strftime("%I:%M%p").lower().lstrip('0')
+
+    # 4. Format dates and times for SUBJECT
+    month_abbr = dt_object.strftime("%b")
+    day_val = dt_object.day
+    subject_date_str = f"{month_abbr} {day_val}{get_ordinal_suffix(day_val)}, {dt_object.strftime('%I:%M').lstrip('0')}-{end_time}"
+
+    # 5. Build the plain text body
+    body_text = f"""{body_warning}Dear all,
+
+a gentle reminder about our next Analysis & PDE seminar (info below).
+
+Analysis & PDE Seminar
+{date_str_body} - {start_time_body}-{end_time}
+{location.strip()}
+
+Speaker: {speaker}
+
+Title: {title}
+
+Abstract: {abstract}
+
+More info: {info_url}
+
+Best wishes,"""
+
+    # 6. Build and Encode Subject and Body
+    subject_text = f"GSSI Analysis & PDE Seminar - {subject_date_str}{subject_warning}"
+    
+    subject = urllib.parse.quote(subject_text)
+    body_encoded = urllib.parse.quote(body_text)
+
+    return f"mailto:{to_email}?subject={subject}&body={body_encoded}"
+
+
+
+def create_mailto_link(subject, body=None):
+    # Base mailto string (leaving recipient empty)
+    base_url = "mailto:?"
+    
+    # Define the parameters
+    params = {'subject': subject}
+    if body:
+        params['body'] = body
+    
+    # urlencode handles the special characters and spaces
+    query_string = urllib.parse.urlencode(params, quote_via=urllib.parse.quote)
+    
+    return base_url + query_string
+
 
 def is_latex(text: str):
     """
@@ -101,6 +193,8 @@ def generate_mds():
 
         slug = get_slug(row['start'], row['speaker'])
         filename = f"{slug}.md"
+        start_dt = parse(row['start'])
+        info_url = f"{BASE_URL}/{slug}"
         
         # Parse tags
         tags = [tag.strip() for tag in row.get('tags', '').split(';') if tag.strip()]
@@ -118,6 +212,7 @@ def generate_mds():
         zoom_link: str = row.get("zoom_link", "")
         
         filepath = os.path.join(OUTPUT_DIR, filename)
+
         
         # Write the Hugo Markdown file
         with open(filepath, 'w', encoding='utf-8') as md_file:
@@ -134,6 +229,11 @@ def generate_mds():
 
             if zoom_link:
                 md_file.write("zoom_link: \"{zoom_link}\"\n")
+
+            if title and title.upper() != "TBA":
+                mailto_link = generate_mailto_url(speaker=speaker, title=title, abstract=raw_abstract, location=place_name, info_url=info_url, dt_object=start_dt)
+
+                md_file.write(f"share: {mailto_link}\n")
 
 
 

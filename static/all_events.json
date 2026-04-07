@@ -415,15 +415,15 @@
     },
     {
         "title": "Rossella Giorgio (TU Wien) - Nonlocal analysis of energies in Micromagnetics",
-        "start": "2026-04-08T16:00:00",
-        "end": "2026-04-08T17:00:00",
+        "start": "2026-04-08T16:30:00",
+        "end": "2026-04-08T17:30:00",
         "allDay": false,
         "description": "In this talk, we present conditions that formally justify a nonlocal analysis of energies in Micromagnetics. Specifically, we first consider a nonlocal-to-local approximation of exchange energy functionals, extending the well-known Bourgain-Brezis-Mironescu formula to encompass the scenario where antisymmetric contributions are encoded. The key points are a pointwise convergence result and a \u0393-convergence argument. Building upon a tailored notion of two-scale convergence, a variational limit of the nonlocal energies in the context of composite ferromagnetic materials can also be obtained, and, time permitting, we briefly review it. After the nonlocal approximation, we investigate the existence and qualitative properties of minimizers, focusing on the competition between a nonlocal symmetric exchange interaction, which penalizes spatial variations in magnetization, and a magnetostatic self-energy term that accounts for long-range dipolar interactions. For spherical domains, we generalize the so-called Brown\u2019s fundamental theorem by identifying critical radii such that uniform magnetizations are preferable for the small-body regime, while non-uniform magnetization configurations become dominant in the large-body regime.",
         "color": "#990011",
         "url": "/seminars/2026-04-08-rossella-giorgio-tu-wien/"
     },
     {
-        "title": "Elias D\u00f6hrer (TU Chemnitz) - $\\mathcal{A}$",
+        "title": "Elias D\u00f6hrer (TU Chemnitz) - TBA",
         "start": "2026-04-14T14:30:00",
         "end": "2026-04-14T15:30:00",
         "allDay": false,
