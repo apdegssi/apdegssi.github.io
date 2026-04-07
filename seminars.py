@@ -194,7 +194,7 @@ def generate_mds():
         slug = get_slug(row['start'], row['speaker'])
         filename = f"{slug}.md"
         start_dt = parse(row['start'])
-        info_url = f"{BASE_URL}/{slug}"
+        info_url = f"{BASE_URL}/seminars/{slug}"
         
         # Parse tags
         tags = [tag.strip() for tag in row.get('tags', '').split(';') if tag.strip()]
