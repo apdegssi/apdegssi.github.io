@@ -1,5 +1,6 @@
 import csv
 import codecs
+import random
 import re
 import json
 import os
@@ -194,7 +195,6 @@ def generate_mds():
         slug = get_slug(row['start'], row['speaker'])
         filename = f"{slug}.md"
         start_dt = parse(row['start'])
-        info_url = f"{BASE_URL}/seminars/{slug}"
         
         # Parse tags
         tags = [tag.strip() for tag in row.get('tags', '').split(';') if tag.strip()]
@@ -211,11 +211,15 @@ def generate_mds():
         place_link = place_to_link(place_name)
         zoom_link: str = row.get("zoom_link", "")
         
-        filepath = os.path.join(OUTPUT_DIR, filename)
+        # filepath = os.path.join(OUTPUT_DIR, filename)
+        rand_int = random.randint(1,100_000)
+
+        filepath_rand = os.path.join(OUTPUT_DIR, slug + f"-r{rand_int}.md")
+        info_url = f"{BASE_URL}/seminars/{slug}"
 
         
         # Write the Hugo Markdown file
-        with open(filepath, 'w', encoding='utf-8') as md_file:
+        with open(filepath_rand, 'w', encoding='utf-8') as md_file:
             # FRONT MATTER
             md_file.write("---\n")
             md_file.write(f"title: {title_safe}\n")
@@ -246,8 +250,11 @@ def generate_mds():
             
             # Write the safely escaped abstract to the front matter
             md_file.write(f"abstract: {abstract_safe}\n")
+            md_file.write(f"""aliases:
+- /seminars/{slug}/
+- /seminars/{slug}-r{rand_int}/
+""")
             md_file.write("---\n\n")
-
 
             
             # We also leave the raw abstract in the body for the single page to render easily

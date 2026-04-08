@@ -423,11 +423,11 @@
         "url": "/seminars/2026-04-08-rossella-giorgio-tu-wien/"
     },
     {
-        "title": "Elias D\u00f6hrer (TU Chemnitz) - TBA",
+        "title": "Elias D\u00f6hrer (TU Chemnitz) - Tangent-Point Energies and a Fenchel Theorem for the Unit Secant",
         "start": "2026-04-14T14:30:00",
         "end": "2026-04-14T15:30:00",
         "allDay": false,
-        "description": "",
+        "description": "Self-repulsive energies have become an active field of research during the last years. I will give some basic definitions concerning self-repulsive functionals, and introduce a special family of functionals - the Tangent-Point energies. They are special in the sense that, besides exhibiting self-repulsion, they also provide a notion of nonlocal curvature. After giving a short introduction into this family of energies, I will connect them to other nonlocal curvatures. Subsequently, I will present a Fenchel theorem for the unit secant. After discussing the statement and its proof, I will highlight its connection to the Tangent-Point energies. Ultimately, I will sketch how this can be applied in order to minimize Tangent-Point energies and other nonlocal curvature functionals.",
         "color": "#990011",
         "url": "/seminars/2026-04-14-elias-d\u00f6hrer-tu-chemnitz/"
     },
