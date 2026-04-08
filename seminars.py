@@ -12,7 +12,7 @@ from dateutil.parser import parse
 # Define the paths
 CSV_FILE = 'seminars.csv'
 OUTPUT_DIR = 'content/seminars'
-BASE_URL = "https://apdegssi.github.io"
+BASE_URL = "https://apde.gssi.it"
 
 
 
