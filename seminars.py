@@ -95,7 +95,8 @@ Best wishes,"""
     
     subject = urllib.parse.quote(subject_text)
     # body_encoded = urllib.parse.quote(body_text, encoding="latin-1")
-    body_encoded = urllib.parse.quote(body_text.encode('latin-1', errors='ignore'))
+    # body_encoded = urllib.parse.quote(body_text.encode('latin-1', errors='ignore'))
+    body_encoded = urllib.parse.quote(body_text, safe=':/', encoding='latin-1', errors='ignore')
 
     return f"mailto:{to_email}?subject={subject}&body={body_encoded}"
 
