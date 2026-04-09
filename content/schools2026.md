@@ -8,7 +8,7 @@ aliases:
   - /schools/
 ---
 
-Summer school on **Analytic and Geometric Aspects of Evolutionary PDEs**. The poster of the school can be found [here](/postergssi2026.jpeg)
+Summer school on **Analytic and Geometric Aspects of Evolutionary PDEs**. The poster of the school can be found [here](/postergssi2026.pdf)
 
 ### Event Schedule
 
