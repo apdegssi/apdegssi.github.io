@@ -1,81 +1,100 @@
 {{ define "main" }}
-<div class="seminars-container">
-    <h1 class="orange-title-strip">{{ .Title }}</h1>
-    
-    <div class="seminar-intro">
+    <h1>{{ .Title }}</h1>
+
+    <div>
         {{ .Content }}
     </div>
 
-    <hr>
+    {{/* 1. Filter seminars at BUILD TIME to reduce HTML size */}}
+    {{ $yesterday := now.AddDate 0 0 -1 }}
+    {{ $upcomingSeminars := where .Pages "Date" ">=" $yesterday }}
 
-    <div class="seminar-list">
-        {{ $yesterday := now.AddDate 0 0 -1 }}
-        {{ $upcomingSeminars := where .Pages "Date" ">=" $yesterday }}
-        
-        {{ if gt (len $upcomingSeminars) 0 }}
-
-
-            {{ range $upcomingSeminars.ByDate }}
-            {{ if .Params.mathjax }}
-            {{ partial "math.html" }}
+    {{/* 2. Check for MathJax only within the build-time upcoming list */}}
+    {{ range $upcomingSeminars.ByDate }}
+        {{ if .Params.mathjax }}
+            {{ partial "math.html" . }}
             {{ break }}
-            {{ end }}
-            {{ end }}
+        {{ end }}
+    {{ end }}
 
+    <div id="seminars-container">
+        {{/* 3. Loop through the filtered list, but still hide by default for JS to process */}}
+        {{ range $upcomingSeminars.ByDate }}
+            <div class="seminar-item" data-date="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" style="display: none; margin-bottom: 30px;">
+                
+                <p>
+                    <strong>{{ .Date.Format "02 January 2006, 3:04pm" }}</strong>, 
+                    {{ if .Params.place_url }}
+                        <a href="{{ .Params.place_url }}" target="_blank">{{ .Params.place }}</a>
+                    {{ else }}
+                        {{ .Params.place }}
+                    {{ end }}
+                </p>
 
+                <p><strong>Speaker:</strong> {{ .Params.speaker }}</p>
+                <p><strong>Title:</strong> {{ .Title }}</p>
 
-
-            
-            {{ range $upcomingSeminars.ByDate }}
-                <div class="seminar-card" style="margin-bottom: 24px;">
-                    <p style="margin-bottom: 8px;">
-                        <strong>{{ .Date.Format "02 January 2006, 3:04pm" }}, 
-                        {{ if .Params.place_url }}
-                            <a href="{{ .Params.place_url }}" target="_blank" rel="noopener noreferrer">{{ .Params.place }}</a>
+                {{/* Grab the abstract text */}}
+                {{ $abstractText := "" }}
+                {{ if .Params.abstract }}
+                    {{ $abstractText = .Params.abstract | plainify  }}
+                {{ else if .Content }}
+                    {{ $abstractText = .Content | plainify | htmlUnescape | trim " \n\r\t" }}
+                {{ end }}
+                
+                {{/* Show Abstract if it exists */}}
+                {{ if gt (len $abstractText) 0 }}
+                    <div class="abstract-block">
+                        <strong>Abstract:</strong> 
+                        
+                        {{ if gt (len $abstractText) 250 }}
+                            {{ $abstractText | truncate 600 "..." }}
+                            <a href="{{ .Permalink }}">Read full abstract →</a>
                         {{ else }}
-                            {{ .Params.place }}
+                            {{ $abstractText }}
                         {{ end }}
-                        </strong><br>
-                        <strong>Speaker:</strong> {{ .Params.speaker }}<br>
-                        <strong>Title:</strong> <a href="{{ .Permalink }}"><em>{{ .Title }}</em></a>
-                    </p>
-                    
-                    {{/* 1. Grab the abstract text (safely checks both body content and front matter) */}}
-                    {{ $abstractText := "" }}
-                    {{ if .Params.abstract }}
-                        {{ $abstractText = .Params.abstract | plainify  }}
-                    {{ else if .Content }}
-                        {{ $abstractText = .Content | plainify | htmlUnescape | trim " \n\r\t" }}
-                    {{ end }}
-                    
-
-                    {{/* 2. Only show the Abstract block if we actually found text */}}
-                    {{ if gt (len $abstractText) 0 }}
-
-                        <p style="margin-top: 10px; font-size: 0.95em; color: #444; line-height: 1.5;">
-
-                            <strong>Abstract:</strong> 
-                            
-                            {{/* 3. If the abstract is longer than 250 characters, cut it off and add the link */}}
-                            {{ if gt (len $abstractText) 250 }}
-                                {{ $abstractText | truncate 600 "..." }}
-                                <a href="{{ .Permalink }}" style="color: #0056b3; font-weight: 600; text-decoration: none; margin-left: 5px;">
-                                    Read full abstract &rarr;
-                                </a>
-                            {{ else }}
-                                {{/* 4. If it's short, just print the whole thing without a link! */}}
-                                {{ $abstractText }}
-                            {{ end }}
-                        </p>
-                    {{ end }}
-                    
-                    <hr style="margin-top: 20px; border: 0; border-top: 1px solid #eee;">
-                </div>
-            {{ end }}
-
-        {{ else }}
-            <p><em>There are currently no upcoming seminars scheduled. Please check back later!</em></p>
+                    </div>
+                {{ end }}
+                
+            </div>
         {{ end }}
     </div>
-</div>
+
+    {{/* 4. The fallback message */}}
+    <div id="no-seminars-msg" style="display: none;">
+        <p>There are currently no upcoming seminars scheduled. Please check back later!</p>
+    </div>
+
+{{/* 5. The JavaScript filters out anything that happened before 00:00 today */}}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get today's date and set it to exactly midnight (00:00:00)
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const seminars = document.querySelectorAll('.seminar-item');
+            let upcomingCount = 0;
+
+            seminars.forEach(function(seminar) {
+                const seminarDateStr = seminar.getAttribute('data-date');
+                
+                if (seminarDateStr) {
+                    const seminarDate = new Date(seminarDateStr);
+                    
+                    // If the seminar is today or in the future, show it.
+                    // Anything from yesterday (even 23:30) is less than 'today' at 00:00:00.
+                    if (seminarDate >= today) {
+                        seminar.style.display = 'block';
+                        upcomingCount++;
+                    }
+                }
+            });
+
+            // If everything in the HTML passed before today, show the fallback message
+            if (upcomingCount === 0) {
+                document.getElementById('no-seminars-msg').style.display = 'block';
+            }
+        });
+    </script>
+
 {{ end }}

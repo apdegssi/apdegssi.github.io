@@ -89,17 +89,41 @@
           {{ end }}
 
 
-          {{ if gt  .Params.Date.Unix  $yesterday }}
-          {{ with .Params.share }}
-            <li><strong>Share:</strong> 
-              {{ if $.Params.share }}
-                <a href="{{ $.Params.share }}" target="_blank" rel="noopener noreferrer">Announcement</a>
-              {{ else }}
-                {{ . }}
-              {{ end }}
-            </li>
-          {{ end }}
-          {{ end }}
+{{/* 1. Remove the Hugo 'if gt' check. Wrap in a hidden container with the date attached */}}
+<div class="future-share-block" data-date="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" style="display: none;">
+    {{ with .Params.share }}
+        Share: 
+        {{ if $.Params.share }}
+            Announcement
+        {{ else }}
+            {{ . }}
+        {{ end }}
+    {{ end }}
+</div>
+
+{{/* 2. JavaScript to reveal the block if the date is today or in the future */}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get today's date and set it to exactly midnight
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const shareBlocks = document.querySelectorAll('.future-share-block');
+
+        shareBlocks.forEach(function(block) {
+            const blockDateStr = block.getAttribute('data-date');
+            
+            if (blockDateStr) {
+                const blockDate = new Date(blockDateStr);
+                
+                // If the seminar is today or in the future, show the share options
+                if (blockDate >= today) {
+                    block.style.display = 'block'; // Use 'inline-block' if you need it to flow with text
+                }
+            }
+        });
+    });
+</script>
           
 
         </ul>

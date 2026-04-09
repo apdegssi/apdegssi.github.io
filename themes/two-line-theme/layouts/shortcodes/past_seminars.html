@@ -1,6 +1,50 @@
-{{ range where (sort .Site.RegularPages ".Params.date" "value" "desc") ".Params.tags" "in" "seminars_short" }}
-  {{ if gt now.Unix .Date.Unix }}
-    <h3> <a href="{{ substr .Permalink 0 -7 }}/">{{ .Title }} </a></h3>
-    {{ .Content }}
-  {{ end }}
-{{ end }}
+<div id="past-seminars-container">
+    {{/* 1. Loop through ALL short seminars, sorted newest to oldest */}}
+    {{ range where (sort .Site.RegularPages ".Params.date" "value" "desc") ".Params.tags" "in" "seminars_short" }}
+        
+        {{/* 2. Hide them by default, inject the date for JS */}}
+        <div class="past-seminar-item" data-date="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" style="display: none; margin-bottom: 20px;">
+            <h3>{{ .Title }}</h3> 
+            <div>{{ .Content }}</div>
+        </div>
+        
+    {{ end }}
+</div>
+
+{{/* 3. The fallback message (optional, but good practice) */}}
+<div id="no-past-seminars-msg" style="display: none;">
+    <p>There are currently no past seminars.</p>
+</div>
+
+{{/* 4. The JavaScript filters out anything that hasn't happened yet */}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get today's date and set it to exactly midnight (00:00:00)
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const pastSeminars = document.querySelectorAll('.past-seminar-item');
+        let pastCount = 0;
+
+        pastSeminars.forEach(function(seminar) {
+            const seminarDateStr = seminar.getAttribute('data-date');
+            
+            if (seminarDateStr) {
+                const seminarDate = new Date(seminarDateStr);
+                
+                // If the seminar happened strictly BEFORE today, show it.
+                // (e.g., Yesterday at 23:30 is < Today at 00:00)
+                if (seminarDate < today) {
+                    seminar.style.display = 'block';
+                    pastCount++;
+                }
+            }
+        });
+
+        // If we found zero past seminars, show the fallback message
+        if (pastCount === 0) {
+            const msg = document.getElementById('no-past-seminars-msg');
+            if (msg) msg.style.display = 'block';
+        }
+    });
+</script>
