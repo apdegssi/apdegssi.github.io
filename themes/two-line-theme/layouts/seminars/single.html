@@ -94,7 +94,7 @@
     {{ with .Params.share }}
         Share: 
         {{ if $.Params.share }}
-            Announcement
+                <a href="{{ $.Params.share }}" target="_blank" rel="noopener noreferrer">Announcement</a>
         {{ else }}
             {{ . }}
         {{ end }}

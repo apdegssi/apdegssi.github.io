@@ -32,7 +32,9 @@
                 </p>
 
                 <p><strong>Speaker:</strong> {{ .Params.speaker }}</p>
-                <p><strong>Title:</strong> {{ .Title }}</p>
+                <p>
+                <strong>Title:</strong> <a href="{{ .Permalink }}"><em>{{ .Title }}</em></a>
+                </p>
 
                 {{/* Grab the abstract text */}}
                 {{ $abstractText := "" }}
