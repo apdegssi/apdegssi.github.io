@@ -236,7 +236,7 @@ def generate_mds():
 
         filepath_rand = os.path.join(OUTPUT_DIR, slug + f"-r{rand_int}.md")
         info_url = f"{BASE_URL}/seminars/{slug}"
-        info_url = urllib.parse.quote(info_url.encode('latin-1', errors='ignore'))
+        # info_url = urllib.parse.quote(info_url.encode('latin-1', errors='ignore'))
 
         
         # Write the Hugo Markdown file
