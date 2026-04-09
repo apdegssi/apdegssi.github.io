@@ -44,8 +44,12 @@
                         
                     {{ else }}
                         
-                        {{/* 3. If it has a real title, wrap it in a link to the seminar page */}}
-                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        {{/* 3. Wrap it in a link to the random alias if it exists, otherwise use standard permalink */}}
+                        {{ if .Params.rand_link }}
+                            <a href="{{ site.BaseURL }}{{ .Params.rand_link }}/">{{ .Title }}</a>
+                        {{ else }}
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        {{ end }}
                         
                     {{ end }}
                 </p>

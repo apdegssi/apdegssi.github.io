@@ -232,7 +232,7 @@ def generate_mds():
         place_link = place_to_link(place_name)
         zoom_link: str = row.get("zoom_link", "")
         
-        # filepath = os.path.join(OUTPUT_DIR, filename)
+        filepath = os.path.join(OUTPUT_DIR, filename)
         rand_int = random.randint(1,100_000)
 
         filepath_rand = os.path.join(OUTPUT_DIR, slug + f"-r{rand_int}.md")
@@ -241,13 +241,14 @@ def generate_mds():
 
         
         # Write the Hugo Markdown file
-        with open(filepath_rand, 'w', encoding='utf-8') as md_file:
+        with open(filepath, 'w', encoding='utf-8') as md_file:
             # FRONT MATTER
             md_file.write("---\n")
             md_file.write(f"title: {title_safe}\n")
             md_file.write(f"date: {row['start']}:00\n") 
             md_file.write(f"speaker: \"{row['speaker']}\"\n")
             md_file.write(f"place: \"{place_name}\"\n")
+            md_file.write(f"rand_link: /seminars/{slug}-r{rand_int}\n")
             if is_latex(title) or is_latex(abstract_safe):
                 md_file.write("mathjax: true\n")
             else:
@@ -273,7 +274,6 @@ def generate_mds():
             # Write the safely escaped abstract to the front matter
             md_file.write(f"abstract: {abstract_safe}\n")
             md_file.write(f"""aliases:
-- /seminars/{slug}/
 - /seminars/{slug}-r{rand_int}/
 """)
             md_file.write("---\n\n")
