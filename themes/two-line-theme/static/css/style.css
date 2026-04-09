@@ -282,7 +282,6 @@ main {
 
 @media (max-width: 768px) {
     .top-nav { padding: 16px 24px; }
-    .bottom-nav { padding: 12px 24px; }
     
     .company-hero { height: 350px; }
     .company-hero .hero-overlay h1 { font-size: 36px; }
@@ -291,6 +290,7 @@ main {
 
     .top-nav { flex-wrap: wrap; }
 
+    /* Hides the main top links until hamburger is clicked */
     .top-nav .nav-links {
         display: none;
         width: 100%;
@@ -300,16 +300,23 @@ main {
         gap: 20px;
     }
 
-    .bottom-nav { display: none; }
-
-    .bottom-nav .sub-nav-links {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+    /* --- THE FIX: Keep Bottom Nav Visible --- */
+    .bottom-nav { 
+        display: block; 
+        padding: 12px 24px;
+        overflow-x: auto; /* Lets users swipe left/right if you add more links later */
     }
 
-    .two-line-navbar.active .nav-links,
-    .two-line-navbar.active .bottom-nav {
+    .bottom-nav .sub-nav-links {
+        display: flex;
+        flex-direction: row; /* Keeps them side-by-side */
+        justify-content: flex-start; /* Aligns them nicely to the left on mobile */
+        gap: 24px;
+    }
+    /* ---------------------------------------- */
+
+    /* Only toggle the main nav links when hamburger is active */
+    .two-line-navbar.active .nav-links {
         display: flex;
     }
 }
