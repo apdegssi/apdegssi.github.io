@@ -10,6 +10,10 @@ import urllib.request
 import urllib.parse
 import subprocess
 from dateutil.parser import parse
+import unicodedata
+
+
+
 # Define the paths
 CSV_FILE = 'seminars.csv'
 OUTPUT_DIR = 'content/seminars'
@@ -18,10 +22,14 @@ BASE_URL = "https://apde.gssi.it"
 
 
 
+
 def decode_unicode(text):
-    if not text: return text
-    try: return codecs.decode(text, 'unicode_escape')
-    except Exception: return text
+    if not text: 
+        return text
+    try: 
+        return codecs.decode(text, 'unicode_escape')
+    except Exception: 
+        return text 
 
 def get_ordinal_suffix(day):
     if 11 <= (day % 100) <= 13: return 'th'
@@ -86,7 +94,8 @@ Best wishes,"""
     subject_text = f"GSSI Analysis & PDE Seminar - {subject_date_str}{subject_warning}"
     
     subject = urllib.parse.quote(subject_text)
-    body_encoded = urllib.parse.quote(body_text)
+    # body_encoded = urllib.parse.quote(body_text, encoding="latin-1")
+    body_encoded = urllib.parse.quote(body_text.encode('latin-1', errors='ignore'))
 
     return f"mailto:{to_email}?subject={subject}&body={body_encoded}"
 
@@ -172,9 +181,20 @@ def place_to_link(place: str) -> str:
 def get_slug(start_string, speaker):
     """Helper function to guarantee the file name and the URL match perfectly."""
     date_str = start_string.split(' ')[0]  # Grabs just the YYYY-MM-DD
-    # Creates a safe string with only letters and hyphens
-    safe_name = "".join([c for c in speaker if c.isalpha() or c.isspace()]).replace(" ", "-").lower()
+    
+    # 1. Translate German umlauts first so 'ö' becomes 'oe'
+    umlauts = {'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', 'Ä': 'ae', 'Ö': 'oe', 'Ü': 'ue'}
+    for search, replace in umlauts.items():
+        speaker = speaker.replace(search, replace)
+        
+    # 2. Normalize any other accents globally (e.g., 'é' becomes 'e', 'ç' becomes 'c')
+    speaker = unicodedata.normalize('NFKD', speaker).encode('ascii', 'ignore').decode('ascii')
+    
+    # 3. Create a safe string with only letters and hyphens
+    safe_name = "".join([c for c in speaker if c.isalpha() or c.isspace()]).strip().replace(" ", "-").lower()
+    
     return f"{date_str}-{safe_name}"
+
 
 def generate_mds():
     # Create the seminars folder if it doesn't exist
@@ -216,6 +236,7 @@ def generate_mds():
 
         filepath_rand = os.path.join(OUTPUT_DIR, slug + f"-r{rand_int}.md")
         info_url = f"{BASE_URL}/seminars/{slug}"
+        info_url = urllib.parse.quote(info_url.encode('latin-1', errors='ignore'))
 
         
         # Write the Hugo Markdown file
