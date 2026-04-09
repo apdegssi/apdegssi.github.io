@@ -32,8 +32,22 @@
                 </p>
 
                 <p><strong>Speaker:</strong> {{ .Params.speaker }}</p>
-                <p>
-                <strong>Title:</strong> <a href="{{ .Permalink }}"><em>{{ .Title }}</em></a>
+                <p><strong>Title:</strong> 
+                    {{/* 1. Normalize the title by making it lowercase and removing extra spaces */}}
+                    {{ $cleanTitle := lower (trim .Title " ") }}
+                    
+                    {{/* 2. Check if it is empty or matches "tba" */}}
+                    {{ if or (eq $cleanTitle "") (eq $cleanTitle "tba") }}
+                        
+                        {{/* If it's completely empty, output "TBA", otherwise output the original TBA text (no link) */}}
+                        {{ if eq $cleanTitle "" }}TBA{{ else }}{{ .Title }}{{ end }}
+                        
+                    {{ else }}
+                        
+                        {{/* 3. If it has a real title, wrap it in a link to the seminar page */}}
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        
+                    {{ end }}
                 </p>
 
                 {{/* Grab the abstract text */}}
