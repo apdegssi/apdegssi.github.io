@@ -20,12 +20,19 @@ Summer school on **Analytic and Geometric Aspects of Evolutionary PDEs**. The po
 
 ### Registration & Financial Support
 
-Registration for the school is mandatory, and the official registration link is available [here](https://indico.gssi.it/event/956/).
+Registration for the school is mandatory, and the official registration link is available [here](https://indico.gssi.it/event/956/). 
 
 GSSI offers limited financial support to students and early-career researchers wishing to attend. During the application for funding, you will be asked to upload a CV and a motivation letter, combined into a single document.
 
 Additionally, you will be ask you to provide the name and contact details of a referee who can supply a letter of recommendation upon request.
 
+#### Key Deadlines:
+
+* Financial Support: **31 May 2026**
+* Registration: **30 June 2026**
+
+<br>
+<br>
 
 
 ### Speakers
