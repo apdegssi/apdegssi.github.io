@@ -1,0 +1,38 @@
+{{/* 1. Grab the school name passed in the shortcode, OR fallback to the page's front matter */}}
+{{ $schoolName := .Get 0 | default .Page.Params.schoolname }}
+
+{{/* 2. Find all pages in the "courses" folder that match this schoolname */}}
+{{ $schoolCourses := where (where site.RegularPages "Section" "courses") ".Params.schoolname" $schoolName }}
+
+{{/* 3. Build the table if courses exist */}}
+{{ if $schoolCourses }}
+    <div class="table-responsive">
+        <table>
+            <tbody>
+                {{/* ADDED SORT HERE: Sorts by the 'shortname' parameter in ascending order */}}
+                {{ range sort $schoolCourses ".Params.shortname" "asc" }}
+                    
+                    {{/* Clean the title to check for TBA */}}
+                    {{ $cleanTitle := lower (trim .Title " ") }}
+                    
+                    <tr>
+                        {{/* Column 1: Speaker (Linked) and Affiliation */}}
+                        <td>
+                            <strong>{{ .Params.speaker }}</strong>, {{ .Params.affiliation }}
+                            <!-- <strong><a href="{{ .RelPermalink }}">{{ .Params.speaker }}</a></strong>, {{ .Params.affiliation }} -->
+                        </td>
+                        
+                        {{/* Column 2: Title (Linked) or TBA (Not linked) */}}
+                        <td>
+                            {{ if or (eq $cleanTitle "") (eq $cleanTitle "tba") }}
+                                TBA
+                            {{ else }}
+                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                            {{ end }}
+                        </td>
+                    </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </div>
+{{ end }}

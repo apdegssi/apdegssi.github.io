@@ -1,6 +1,9 @@
 +++
 title = "Structure of entropy solutions to scalar conservation laws"
 speaker = "Elio Marconi"
+affiliation = "University of Padova"
+schoolname = "school2026"
+shortname = "marconi"
 draft = false
 +++
 
