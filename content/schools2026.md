@@ -41,4 +41,4 @@ Additionally, you will be ask you to provide the name and contact details of a r
 | :--- | :--- |
 | **[John Anderson](/courses/anderson)**, Stony Brook University | TBA |
 | **[Tarek Elgindi](/courses/elgindi)**,  Duke University| TBA |
-| **[Elio Marconi](/courses/marconi)**, University of Padova | TBA |
+| **[Elio Marconi](/courses/marconi)**, University of Padova | Structure of entropy solutions to scalar conservation laws |
