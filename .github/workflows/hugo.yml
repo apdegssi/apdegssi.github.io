@@ -9,10 +9,11 @@ on:
 
   # Runs every day at 22:00 UTC, which is 00:00 CEST (Midnight local time in Italy)
   schedule:
-    - cron: '0 22 * * *'
+    - cron: '37 23 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -42,10 +43,10 @@ jobs:
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Install Dart Sass
-        run: sudo snap install dart-sass
+      # - name: Install Dart Sass
+      #   run: sudo snap install dart-sass
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           submodules: recursive
 
