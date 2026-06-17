@@ -109,7 +109,8 @@ async function loadNextEvents() {
       return;
     }
 
-    const nextDateKey = getDateKeyFromEvent(upcomingEvents[0]);
+    next_event = upcomingEvents[0];
+    const nextDateKey = getDateKeyFromEvent(next_event);
 
     const eventsOnNextDay = upcomingEvents.filter(event => {
       return getDateKeyFromEvent(event) === nextDateKey;
@@ -117,13 +118,15 @@ async function loadNextEvents() {
 
     const dateLabel = formatDateKey(nextDateKey);
 
+    const startTime = getTimeFromDateTime(next_event.start);
+
     container.innerHTML = `
       <section class="next-event-card">
         <div class="next-event-label">
           Upcoming event${eventsOnNextDay.length > 1 ? "s" : ""}
         </div>
 
-        <div class="next-event-date">${dateLabel}</div>
+        <div class="next-event-date">${dateLabel}, ${startTime}</div>
 
         <ul class="next-event-list">
           ${eventsOnNextDay.map(renderEventItem).join("")}
