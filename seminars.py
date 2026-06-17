@@ -210,7 +210,7 @@ def generate_mds():
         # Use the helper function to get the base name
 
         speaker = row.get('speaker', '')
-        if not speaker.strip():
+        if not speaker.strip() or speaker.strip().lower() == "school":
             continue
 
         slug = get_slug(row['start'], row['speaker'])
@@ -323,10 +323,6 @@ def generate_calendar_events():
             title = f"{speaker} - {_title}"
             hugo_url = f"/seminars/{slug}/"
             url = row.get("url", hugo_url)
-            # print(url)
-            # print(hugo_url)
-            # print(row)
-            # print("============")
             
             all_events.append({
                 "title": title,
