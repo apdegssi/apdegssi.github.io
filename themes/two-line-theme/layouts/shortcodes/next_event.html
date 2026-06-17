@@ -1,0 +1,208 @@
+<div id="next-event"></div>
+
+<style>
+  .next-event-card {
+    margin: 1rem 0;
+    padding: 1rem 1.1rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  .next-event-label {
+    margin-bottom: 0.45rem;
+    color: #777;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .next-event-date {
+    margin-bottom: 0.75rem;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 650;
+  }
+
+  .next-event-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .next-event-item {
+    padding: 0.75rem 0;
+    border-top: 1px solid #eee;
+  }
+
+  .next-event-item:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .next-event-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .next-event-title {
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+    line-height: 1.35;
+    font-weight: 650;
+  }
+
+  .next-event-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .next-event-title a:hover {
+    color: var(--event-color, #990011);
+  }
+
+  .next-event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.9rem;
+    color: #666;
+    font-size: 0.88rem;
+  }
+
+  .next-event-more {
+    display: inline-block;
+    margin-top: 0.45rem;
+    color: var(--event-color, #990011);
+    font-size: 0.88rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .next-event-more:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+async function loadNextEvents() {
+  const container = document.getElementById("next-event");
+
+  try {
+    const response = await fetch("/all_events.json", {
+      cache: "no-cache"
+    });
+
+    if (!response.ok) {
+      throw new Error(`Could not load events: ${response.status}`);
+    }
+
+    const events = await response.json();
+
+    const todayKey = getTodayKey();
+
+    const upcomingEvents = events
+      .filter(event => getDateKeyFromEvent(event) >= todayKey)
+      .sort((a, b) => getDateKeyFromEvent(a).localeCompare(getDateKeyFromEvent(b)));
+
+    if (upcomingEvents.length === 0) {
+      container.innerHTML = "";
+      return;
+    }
+
+    const nextDateKey = getDateKeyFromEvent(upcomingEvents[0]);
+
+    const eventsOnNextDay = upcomingEvents.filter(event => {
+      return getDateKeyFromEvent(event) === nextDateKey;
+    });
+
+    const dateLabel = formatDateKey(nextDateKey);
+
+    container.innerHTML = `
+      <section class="next-event-card">
+        <div class="next-event-label">
+          Upcoming event${eventsOnNextDay.length > 1 ? "s" : ""}
+        </div>
+
+        <div class="next-event-date">${dateLabel}</div>
+
+        <ul class="next-event-list">
+          ${eventsOnNextDay.map(renderEventItem).join("")}
+        </ul>
+      </section>
+    `;
+  } catch (error) {
+    console.error(error);
+    container.innerHTML = "";
+  }
+}
+
+function renderEventItem(event) {
+  const startTime = getTimeFromDateTime(event.start);
+  const endTime = event.end ? getTimeFromDateTime(event.end) : null;
+
+  const eventColor = event.color || "#990011";
+  const eventUrl = event.url || "#";
+
+  return `
+    <li class="next-event-item" style="--event-color: ${escapeHTML(eventColor)}">
+      <h3 class="next-event-title">
+        <a href="${escapeAttribute(eventUrl)}">
+          ${escapeHTML(event.title)}
+        </a>
+      </h3>
+
+      <div class="next-event-meta">
+        <span>${startTime}${endTime ? `–${endTime}` : ""}</span>
+      </div>
+
+      <a class="next-event-more" href="${escapeAttribute(eventUrl)}">
+        View details →
+      </a>
+    </li>
+  `;
+}
+
+function getDateKeyFromEvent(event) {
+  return String(event.start).slice(0, 10);
+}
+
+function getTodayKey() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function formatDateKey(dateKey) {
+  const [year, month, day] = dateKey.split("-").map(Number);
+
+  return new Date(year, month - 1, day).toLocaleDateString(undefined, {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+}
+
+function getTimeFromDateTime(value) {
+  const timePart = String(value).slice(11, 16);
+  return timePart || "";
+}
+
+function escapeHTML(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function escapeAttribute(value) {
+  return escapeHTML(value).replaceAll("`", "&#096;");
+}
+
+loadNextEvents();
+</script>

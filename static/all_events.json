@@ -1,8 +1,17 @@
 [
     {
+        "title": "TEST (University of L'Aquila) - Magnetic reconnection for incompressible MHD equations",
+        "start": "2026-10-03T14:30:00",
+        "end": "2026-10-03T15:30:00",
+        "allDay": false,
+        "description": "The goal of this talk is to provide examples of periodic smooth solutions of the incompressible Magnetohydrodynamics equations (MHD) for which the topology of the magnetic field lines changes under the evolution. This is known to be impossible in the non-resistive case by Alfv\u00e9n's theorem. The reconnection of the magnetic field lines occurs instead in the resistive case, being responsible for many dynamic phenomena in astrophysics such as solar flares and the solar wind. Although numerical and experimental evidence exist, analytical examples of magnetic reconnection were not known.",
+        "color": "#990011",
+        "url": "/seminars/2024-10-03-gennaro-ciampa-university-of-laquila/"
+    },
+    {
         "title": "Gennaro Ciampa (University of L'Aquila) - Magnetic reconnection for incompressible MHD equations",
-        "start": "2024-10-03T14:30:00",
-        "end": "2024-10-03T15:30:00",
+        "start": "2026-10-03T14:30:00",
+        "end": "2026-10-03T15:30:00",
         "allDay": false,
         "description": "The goal of this talk is to provide examples of periodic smooth solutions of the incompressible Magnetohydrodynamics equations (MHD) for which the topology of the magnetic field lines changes under the evolution. This is known to be impossible in the non-resistive case by Alfv\u00e9n's theorem. The reconnection of the magnetic field lines occurs instead in the resistive case, being responsible for many dynamic phenomena in astrophysics such as solar flares and the solar wind. Although numerical and experimental evidence exist, analytical examples of magnetic reconnection were not known.",
         "color": "#990011",
