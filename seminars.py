@@ -322,6 +322,11 @@ def generate_calendar_events():
             _title = row.get('title', 'TBA')
             title = f"{speaker} - {_title}"
             hugo_url = f"/seminars/{slug}/"
+            url = row.get("url", hugo_url)
+            print(url)
+            print(hugo_url)
+            print(row)
+            print("============")
             
             all_events.append({
                 "title": title,
@@ -330,7 +335,7 @@ def generate_calendar_events():
                 "allDay": False,
                 "description": row.get('abstract', ''),
                 "color": row.get('color', '#990011'),
-                "url": hugo_url 
+                "url": url 
             })
         except ValueError as e:
             print(f"Skipping row due to date formatting error ({row.get('title', 'Unknown')}): {e}")
