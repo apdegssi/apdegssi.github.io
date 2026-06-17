@@ -1,5 +1,5 @@
 # baseURL = 'apdegssi.github.io/'
-baseURL = 'apde.gssi.it/'
+baseURL = 'https://apde.gssi.it/'
 locale = 'en-us'
 title = 'Analysis and PDE at GSSI'
 theme = 'two-line-theme'
