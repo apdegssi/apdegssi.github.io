@@ -323,10 +323,10 @@ def generate_calendar_events():
             title = f"{speaker} - {_title}"
             hugo_url = f"/seminars/{slug}/"
             url = row.get("url", hugo_url)
-            print(url)
-            print(hugo_url)
-            print(row)
-            print("============")
+            # print(url)
+            # print(hugo_url)
+            # print(row)
+            # print("============")
             
             all_events.append({
                 "title": title,
