@@ -380,3 +380,24 @@ main {
         font-size: 2.5rem; /* Makes the title nice and big */
         font-weight: bold;
     }
+
+
+
+.roman-parentheses {
+  list-style: none;
+  counter-reset: roman-item;
+  padding-left: 2.5rem;
+  margin-top: -1rem;
+}
+
+.roman-parentheses > li {
+  counter-increment: roman-item;
+  position: relative;
+}
+
+.roman-parentheses > li::before {
+  content: "(" counter(roman-item, lower-roman) ") ";
+  position: absolute;
+  right: 100%;
+  margin-right: 0.5rem;
+}
