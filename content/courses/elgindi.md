@@ -12,7 +12,7 @@ draft = false
 
 #### Abstract: 
 
-We will discuss various problems related to solutions to the incompressible. Time permitting, we will discuss:
+We will discuss various problems related to solutions to the incompressible Euler equation. Time permitting, we will discuss:
 <ol class="roman-parentheses">
   <li>steady solutions to the Euler equation and their stability;</li>
   <li>aspects of the long-time behavior of 2D Euler flows;</li>
