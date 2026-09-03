@@ -63,8 +63,7 @@ jobs:
 
       - name: Run Python script
         # ⚠️ Replace 'my_script.py' with the actual name/path of your script!
-        run: python seminars.py
-        run: python generate_schedule.py --gid 85269268 --sheet 1uyCNW7m8-qgLgDUd1FLfyARYy8C2zksQUzmI-VL9zh0 --inject content/schools2026.md
+        run: python seminars.py; python generate_schedule.py --gid 85269268 --sheet 1uyCNW7m8-qgLgDUd1FLfyARYy8C2zksQUzmI-VL9zh0 --inject content/schools2026.md
 
 
 
