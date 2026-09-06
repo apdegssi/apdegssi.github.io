@@ -302,10 +302,12 @@ def generate_calendar_events():
             if not start_str:
                 continue
                 
-            start_date = datetime.strptime(start_str, "%Y-%m-%d %H:%M")
+            # start_date = datetime.strptime(start_str, "%Y-%m-%d %H:%M")
+            start_date = parse(start_str)
 
             if end_str:
-                end_date = datetime.strptime(end_str, "%Y-%m-%d %H:%M")
+                # end_date = datetime.strptime(end_str, "%Y-%m-%d %H:%M")
+                end_date = parse(start_str)
             else:
                 end_date = start_date + timedelta(hours=1)
                 end_str = end_date.strftime("%Y-%m-%d %H:%M:%S")
