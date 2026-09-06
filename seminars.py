@@ -359,7 +359,14 @@ def generate_school_events(gid):
                 else:
                     title = f"{speaker}"
 
-                url = row['link'] if row['link'] else dictionary[key]['link'] 
+                if row['link']:
+                    url = row['link'] 
+                else:
+                    url = dictionary[key]['link']
+
+                url = f"{BASE_URL}/{url}"
+
+
                 color: str = row['color'] if row['color'] else dictionary[key]['color']
                 # hugo_url = f"/seminars/{slug}/"
                 # url = row.get("url", hugo_url)
