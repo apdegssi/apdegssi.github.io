@@ -241,12 +241,13 @@ def generate_mds():
         info_url = f"{BASE_URL}/seminars/{slug}"
         # info_url = urllib.parse.quote(info_url.encode('latin-1', errors='ignore'))
 
+        date_for_md = parse(row['start']).strftime("%Y-%m-%d %H:%M")
         # Write the Hugo Markdown file
         with open(filepath, 'w', encoding='utf-8') as md_file:
             # FRONT MATTER
             md_file.write("---\n")
             md_file.write(f"title: {title_safe}\n")
-            md_file.write(f"date: {row['start']}:00\n") 
+            md_file.write(f"date: {date_for_md}:00\n") 
             md_file.write(f"speaker: \"{row['speaker']}\"\n")
             md_file.write(f"place: \"{place_name}\"\n")
             md_file.write(f"rand_link: /seminars/{slug}-r{rand_int}\n")
@@ -307,10 +308,10 @@ def generate_calendar_events():
 
             if end_str:
                 # end_date = datetime.strptime(end_str, "%Y-%m-%d %H:%M")
-                end_date = parse(start_str)
+                end_date  = parse(end_str)
             else:
                 end_date = start_date + timedelta(hours=1)
-                end_str = end_date.strftime("%Y-%m-%d %H:%M:%S")
+                # end_str = end_date.strftime("%Y-%m-%d %H:%M:%S")
 
             start_iso = start_date.strftime("%Y-%m-%dT%H:%M:%S")
             end_iso = end_date.strftime("%Y-%m-%dT%H:%M:%S")
@@ -327,6 +328,7 @@ def generate_calendar_events():
             hugo_url = f"/seminars/{slug}/"
             url = row.get("url", hugo_url)
             
+            print(title, start_iso, end_iso)
             all_events.append({
                 "title": title,
                 "start": start_iso,
