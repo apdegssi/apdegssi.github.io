@@ -493,5 +493,32 @@
         "description": "",
         "color": "#990011",
         "url": "/school2026"
+    },
+    {
+        "title": "tba - tba",
+        "start": "2026-10-06T14:30:00",
+        "end": "2026-10-06T15:30:00",
+        "allDay": false,
+        "description": "tba",
+        "color": "#990011",
+        "url": ""
+    },
+    {
+        "title": "M\u00f3nica Tapia del Moral (University of Cambridge) - tba",
+        "start": "2026-10-20T14:30:00",
+        "end": "2026-10-20T15:30:00",
+        "allDay": false,
+        "description": "tba",
+        "color": "#990011",
+        "url": ""
+    },
+    {
+        "title": "Milo Viviani (Scuola Normale Superiore) - tba",
+        "start": "2026-10-27T14:30:00",
+        "end": "2026-10-27T15:30:00",
+        "allDay": false,
+        "description": "tba",
+        "color": "#990011",
+        "url": ""
     }
 ]

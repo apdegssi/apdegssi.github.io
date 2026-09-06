@@ -181,7 +181,9 @@ def place_to_link(place: str) -> str:
 
 def get_slug(start_string, speaker):
     """Helper function to guarantee the file name and the URL match perfectly."""
-    date_str = start_string.split(' ')[0]  # Grabs just the YYYY-MM-DD
+    dt = parse(start_string)
+    # date_str = start_string.split(' ')[0]  # Grabs just the YYYY-MM-DD
+    date_str = dt.strftime("%Y-%m-%d")
     
     # 1. Translate German umlauts first so 'ö' becomes 'oe'
     umlauts = {'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', 'Ä': 'ae', 'Ö': 'oe', 'Ü': 'ue'}
@@ -239,7 +241,6 @@ def generate_mds():
         info_url = f"{BASE_URL}/seminars/{slug}"
         # info_url = urllib.parse.quote(info_url.encode('latin-1', errors='ignore'))
 
-        
         # Write the Hugo Markdown file
         with open(filepath, 'w', encoding='utf-8') as md_file:
             # FRONT MATTER
