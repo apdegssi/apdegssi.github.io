@@ -18,7 +18,7 @@ import unicodedata
 CSV_FILE = 'seminars.csv'
 OUTPUT_DIR = 'content/seminars'
 BASE_URL = "https://apde.gssi.it"
-
+JSON_EVENT_PATH = 'static/all_events.json'
 
 
 
@@ -141,6 +141,21 @@ def is_latex(text: str):
     
     return bool(combined_pattern.search(text))
 
+@lru_cache
+def get_school_data(gid):
+    SHEET_ID = '1uyCNW7m8-qgLgDUd1FLfyARYy8C2zksQUzmI-VL9zh0'
+    GID = gid
+
+    # The special export URL format
+    export_url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv&gid={GID}"
+
+    # Where to save the file so Hugo can use it
+    # Saving it to the 'data' folder is best practice for Hugo
+    response = urllib.request.urlopen(export_url)
+    lines = [line.decode('utf-8') for line in response.readlines()]
+
+    # 3. Pass the text lines directly into the CSV module
+    return lines
 
 @lru_cache
 def get_reader_data():
@@ -208,9 +223,7 @@ def generate_mds():
         
     reader = csv.DictReader(get_reader_data())
     for row in reader:
-        # print(row)
         # Use the helper function to get the base name
-
         speaker = row.get('speaker', '')
         if not speaker.strip() or speaker.strip().lower() == "school":
             continue
@@ -286,6 +299,98 @@ def generate_mds():
 
     print("Successfully generated clean Hugo markdown files for all seminars!")
 
+
+def generate_school_events(gid):
+
+    if os.path.isfile(JSON_EVENT_PATH):
+        with open(JSON_EVENT_PATH, 'r') as f:
+            all_events = json.load(f)
+    else:
+        all_events = []
+    # print(all_events)
+
+
+
+    reader = csv.DictReader(get_school_data(gid))
+    dictionary = {}
+    for row in reader:
+        if row["type"] != "course":
+            continue
+        key = row.pop('course')
+        dictionary[key] = row
+
+    reader = csv.DictReader(get_school_data(gid))
+
+    for row in reader:
+        if row["type"] == "course":
+            continue
+
+        try:
+            start_str = row.get("date", '').strip() +" "+ row.get("start", '').strip()
+            start_date = parse(start_str)
+
+            end_str = row.get("date", '').strip() +" "+ row.get("end", '').strip()
+            
+            if not start_str:
+                continue
+                
+            if end_str:
+                end_date  = parse(end_str)
+            else:
+                end_date = start_date + timedelta(hours=1)
+                # end_str = end_date.strftime("%Y-%m-%d %H:%M:%S")
+
+            start_iso = start_date.strftime("%Y-%m-%dT%H:%M:%S")
+            end_iso = end_date.strftime("%Y-%m-%dT%H:%M:%S")
+
+            if row['type'].lower() == "lecture":
+                speaker = row.get('speaker', '')
+                key = row["course"]
+
+                # print(row)
+                if not speaker.strip():
+                    continue
+
+                # print("ciao")
+
+                _title = row.get('title', "")
+                if _title:
+                    title = f"{speaker} - {_title}"
+                else:
+                    title = f"{speaker}"
+
+                url = dictionary[key]['url']
+                color = row['color'] if row['color'] else dictionary[key]['color']
+                # hugo_url = f"/seminars/{slug}/"
+                # url = row.get("url", hugo_url)
+                event = {
+                    "title": title,
+                    "start": start_iso,
+                    "end": end_iso,
+                    "allDay": False,
+                    "description": row.get('abstract', ''),
+                    "color": color,
+                    "url": url
+                }
+                # print(event)
+                
+                all_events.append(event)
+        except ValueError as e:
+            print(row)
+            print(f"Skipping row due to date formatting error ({row.get('title', 'Unknown')}): {e}")
+
+    output_json_path = 'static/all_events.json'
+    os.makedirs('static', exist_ok=True)
+    
+    with open(output_json_path, 'w', encoding='utf-8') as json_file:
+        json.dump(all_events, json_file, indent=4)
+
+    print(f"Success! {len(all_events)} seminars exported to {output_json_path}.")
+
+
+
+
+
 def generate_calendar_events():
     all_events = []
     start = "start"
@@ -328,7 +433,7 @@ def generate_calendar_events():
             hugo_url = f"/seminars/{slug}/"
             url = row.get("url", hugo_url)
             
-            print(title, start_iso, end_iso)
+            # print(title, start_iso, end_iso)
             all_events.append({
                 "title": title,
                 "start": start_iso,
@@ -353,3 +458,4 @@ if __name__ == "__main__":
     _ = subprocess.run("rm content/seminars/20*", shell=True)
     generate_mds()
     generate_calendar_events()
+    generate_school_events(85269268)

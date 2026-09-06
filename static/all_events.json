@@ -556,5 +556,95 @@
         "description": "",
         "color": "#990011",
         "url": ""
+    },
+    {
+        "title": "Marconi",
+        "start": "2026-09-14T09:00:00",
+        "end": "2026-09-14T10:45:00",
+        "allDay": false,
+        "description": "",
+        "color": "#c0892c",
+        "url": "/courses/marconi/"
+    },
+    {
+        "title": "Elgindi",
+        "start": "2026-09-14T11:15:00",
+        "end": "2026-09-14T13:00:00",
+        "allDay": false,
+        "description": "",
+        "color": "#3f8f64",
+        "url": "/courses/elgindi/"
+    },
+    {
+        "title": "Anderson",
+        "start": "2026-09-14T15:00:00",
+        "end": "2026-09-14T16:45:00",
+        "allDay": false,
+        "description": "",
+        "color": "#3a6ea5",
+        "url": "/courses/anderson/"
+    },
+    {
+        "title": "Anderson",
+        "start": "2026-09-15T10:00:00",
+        "end": "2026-09-15T11:45:00",
+        "allDay": false,
+        "description": "",
+        "color": "#3a6ea5",
+        "url": "/courses/anderson/"
+    },
+    {
+        "title": "Elgindi",
+        "start": "2026-09-15T16:15:00",
+        "end": "2026-09-15T18:00:00",
+        "allDay": false,
+        "description": "",
+        "color": "#3f8f64",
+        "url": "/courses/elgindi/"
+    },
+    {
+        "title": "Marconi",
+        "start": "2026-09-16T11:15:00",
+        "end": "2026-09-16T13:00:00",
+        "allDay": false,
+        "description": "",
+        "color": "#c0892c",
+        "url": "/courses/marconi/"
+    },
+    {
+        "title": "Marconi",
+        "start": "2026-09-17T10:00:00",
+        "end": "2026-09-17T11:45:00",
+        "allDay": false,
+        "description": "",
+        "color": "#c0892c",
+        "url": "/courses/marconi/"
+    },
+    {
+        "title": "Anderson",
+        "start": "2026-09-17T14:00:00",
+        "end": "2026-09-17T15:45:00",
+        "allDay": false,
+        "description": "",
+        "color": "#3a6ea5",
+        "url": "/courses/anderson/"
+    },
+    {
+        "title": "Elgindi",
+        "start": "2026-09-17T16:15:00",
+        "end": "2026-09-17T18:00:00",
+        "allDay": false,
+        "description": "",
+        "color": "#3f8f64",
+        "url": "/courses/elgindi/"
+    },
+    {
+        "title": "Anderson",
+        "start": "2026-09-18T09:30:00",
+        "end": "2026-09-18T11:15:00",
+        "allDay": false,
+        "description": "",
+        "color": "#3a6ea5",
+        "url": "/courses/anderson/"
     }
 ]
