@@ -23,7 +23,6 @@ JSON_EVENT_PATH = 'static/all_events.json'
 def parse_datetime(value: str):
     day_first = "/" in value
     res = parse(value, dayfirst=day_first)
-    print(res)
     return res
 
 
@@ -312,7 +311,6 @@ def generate_school_events(gid):
             all_events = json.load(f)
     else:
         all_events = []
-    # print(all_events)
 
 
 
@@ -352,11 +350,9 @@ def generate_school_events(gid):
                 speaker = row.get('speaker', '')
                 key = row["course"]
 
-                # print(row)
                 if not speaker.strip():
                     continue
 
-                # print("ciao")
 
                 _title = row.get('title', "")
                 if _title:
@@ -384,7 +380,6 @@ def generate_school_events(gid):
                     "color": color,
                     "url": url
                 }
-                # print(event)
                 
                 all_events.append(event)
         except ValueError as e:

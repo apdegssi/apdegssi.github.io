@@ -495,7 +495,7 @@
         "url": "/school2026"
     },
     {
-        "title": "tba - tba",
+        "title": "Andrea Bondesan (Gran Sasso Science Institute) - tba",
         "start": "2026-10-06T14:30:00",
         "end": "2026-10-06T15:30:00",
         "allDay": false,
@@ -594,9 +594,27 @@
         "url": "https://apde.gssi.it//courses/anderson/"
     },
     {
+        "title": "Marconi",
+        "start": "2026-09-15T14:00:00",
+        "end": "2026-09-15T15:45:00",
+        "allDay": false,
+        "description": "",
+        "color": "#c0892c",
+        "url": "https://apde.gssi.it//courses/marconi/"
+    },
+    {
         "title": "Elgindi",
         "start": "2026-09-15T16:15:00",
         "end": "2026-09-15T18:00:00",
+        "allDay": false,
+        "description": "",
+        "color": "#3f8f64",
+        "url": "https://apde.gssi.it//courses/elgindi/"
+    },
+    {
+        "title": "Elgindi",
+        "start": "2026-09-16T09:00:00",
+        "end": "2026-09-16T10:45:00",
         "allDay": false,
         "description": "",
         "color": "#3f8f64",
