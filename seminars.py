@@ -20,6 +20,11 @@ OUTPUT_DIR = 'content/seminars'
 BASE_URL = "https://apde.gssi.it"
 JSON_EVENT_PATH = 'static/all_events.json'
 
+def parse_datetime(value: str):
+    day_first = "/" in value
+    res = parse(value, dayfirst=day_first)
+    print(res)
+    return res
 
 
 
@@ -196,7 +201,7 @@ def place_to_link(place: str) -> str:
 
 def get_slug(start_string: str, speaker: str):
     """Helper function to guarantee the file name and the URL match perfectly."""
-    dt = parse(start_string, dayfirst=True)
+    dt = parse_datetime(start_string)
     # date_str = start_string.split(' ')[0]  # Grabs just the YYYY-MM-DD
     date_str = dt.strftime("%Y-%m-%d")
     
@@ -230,7 +235,7 @@ def generate_mds():
 
         slug = get_slug(row['start'], row['speaker'])
         filename = f"{slug}.md"
-        start_dt = parse(row['start'], dayfirst=True)
+        start_dt = parse_datetime(row['start'])
         
         # Parse tags
         tags = [tag.strip() for tag in row.get('tags', '').split(';') if tag.strip()]
@@ -254,13 +259,13 @@ def generate_mds():
         info_url = f"{BASE_URL}/seminars/{slug}"
         # info_url = urllib.parse.quote(info_url.encode('latin-1', errors='ignore'))
 
-        date_for_md = parse(row['start'], dayfirst=True).strftime("%Y-%m-%d %H:%M")
+        date_for_md = parse_datetime(row['start'])
         # Write the Hugo Markdown file
         with open(filepath, 'w', encoding='utf-8') as md_file:
             # FRONT MATTER
             md_file.write("---\n")
             md_file.write(f"title: {title_safe}\n")
-            md_file.write(f"date: {date_for_md}:00\n") 
+            md_file.write(f"date: {date_for_md}\n") 
             md_file.write(f"speaker: \"{row['speaker']}\"\n")
             md_file.write(f"place: \"{place_name}\"\n")
             md_file.write(f"rand_link: /seminars/{slug}-r{rand_int}\n")
@@ -327,7 +332,7 @@ def generate_school_events(gid):
 
         try:
             start_str = row.get("date", '').strip() +" "+ row.get("start", '').strip()
-            start_date = parse(start_str, dayfirst=True)
+            start_date = parse_datetime(start_str)
 
             end_str = row.get("date", '').strip() +" "+ row.get("end", '').strip()
             
@@ -335,7 +340,7 @@ def generate_school_events(gid):
                 continue
                 
             if end_str:
-                end_date  = parse(end_str, dayfirst=True)
+                end_date  = parse_datetime(end_str)
             else:
                 end_date = start_date + timedelta(hours=1)
                 # end_str = end_date.strftime("%Y-%m-%d %H:%M:%S")
@@ -416,11 +421,11 @@ def generate_calendar_events():
                 continue
                 
             # start_date = datetime.strptime(start_str, "%Y-%m-%d %H:%M")
-            start_date = parse(start_str, dayfirst=True)
+            start_date = parse_datetime(start_str)
 
             if end_str:
                 # end_date = datetime.strptime(end_str, "%Y-%m-%d %H:%M")
-                end_date  = parse(end_str, dayfirst=True)
+                end_date  = parse_datetime(end_str)
             else:
                 end_date = start_date + timedelta(hours=1)
                 # end_str = end_date.strftime("%Y-%m-%d %H:%M:%S")

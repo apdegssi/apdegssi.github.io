@@ -523,8 +523,8 @@
     },
     {
         "title": "Antonio Tribuzio (University of Bonn) - tba",
-        "start": "2026-10-11T14:30:00",
-        "end": "2026-10-11T15:30:00",
+        "start": "2026-11-10T14:30:00",
+        "end": "2026-11-10T15:30:00",
         "allDay": false,
         "description": "tba",
         "color": "#990011",
@@ -535,7 +535,7 @@
         "start": "2026-11-17T14:30:00",
         "end": "2026-11-17T15:30:00",
         "allDay": false,
-        "description": "",
+        "description": "tba",
         "color": "#990011",
         "url": ""
     },
@@ -544,16 +544,16 @@
         "start": "2026-11-24T14:30:00",
         "end": "2026-11-24T15:30:00",
         "allDay": false,
-        "description": "",
+        "description": "tba",
         "color": "#990011",
         "url": ""
     },
     {
-        "title": "Antonio Agresti (apienza University of Rome) - tba",
-        "start": "2026-01-12T14:30:00",
-        "end": "2026-01-12T15:30:00",
+        "title": "Antonio Agresti (Sapienza University of Rome) - tba",
+        "start": "2026-12-01T14:30:00",
+        "end": "2026-12-01T15:30:00",
         "allDay": false,
-        "description": "",
+        "description": "tba",
         "color": "#990011",
         "url": ""
     },
