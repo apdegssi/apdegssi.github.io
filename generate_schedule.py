@@ -319,28 +319,31 @@ def render_event(event: Event, day_start: int, day_span: int) -> str:
     )
 
 
-def render_featured(event: Event, day_index: int, locale: str) -> str:
+def render_featured(event: Event) -> str:
     time_label = format_time(event.start)
     primary = event.speaker or event.label or event.type.title()
     secondary = safe_label(event.label) if event.speaker and event.label else ""
     content = (
         f'<div><time datetime="{esc(event.start.isoformat())}">{time_label}</time>'
         f'{primary_html(primary, label_html=not bool(event.speaker))}</div>'
-        f'<small>{esc(format_day(event.start.date(), locale))}</small>'
         f'{f"<p>{secondary}</p>" if secondary else ""}'
     )
     return (
         f'<aside class="schedule-featured schedule-featured--{esc(event.type)}" '
-        f'style="--day-column:{day_index + 1};--card-color:{event_color(event)}">'
+        f'style="--card-color:{event_color(event)}">'
         f'{clickable_content(event, content)}</aside>'
     )
 
 
 def stylesheet() -> str:
     return """
-.schedule-table{--ink:#141414;--line:#1a1a1a;--muted:#5d6268;color:var(--ink);font-family:Arial,Helvetica,sans-serif;max-width:1200px;margin:0 auto}
-.schedule-table *{box-sizing:border-box}.schedule-scroll{overflow-x:auto;padding-bottom:.5rem}.schedule-grid{display:grid;grid-template-columns:repeat(var(--days),minmax(190px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);min-width:950px}.schedule-day{min-width:0;border-right:1px solid var(--line)}.schedule-day h2{font-size:1rem;text-align:center;margin:0;height:44px;padding:.8rem .35rem;border-bottom:1px solid var(--line)}.schedule-day-track{height:540px;position:relative}.schedule-card{position:absolute;z-index:1;top:var(--top);height:var(--height);min-height:30px;left:0;right:0;padding:0;background:#eef1f3;background:color-mix(in srgb,var(--card-color) 22%,#fff);border-block:1px solid var(--line);border-left:4px solid var(--card-color);overflow:auto;overscroll-behavior:contain}.schedule-card__clickable{display:block;width:100%;height:100%;padding:.48rem .45rem;color:inherit;text-decoration:none;border-radius:2px}.schedule-card__clickable[href]:hover strong{text-decoration:underline;text-underline-offset:3px}.schedule-card__clickable[href]:focus-visible{outline:3px solid var(--card-color);outline-offset:-3px}.schedule-card__line{display:grid;grid-template-columns:minmax(94px,.75fr) minmax(0,1fr);gap:.35rem;align-items:baseline}.schedule-card time{white-space:nowrap}.schedule-card strong{font-size:.96rem}.schedule-card__label{font-size:.84rem;line-height:1.2;margin-top:.28rem}.schedule-card__label small{font-size:.75rem}.schedule-card--break,.schedule-card--note{background:#fff;border-left-color:#aaa}.schedule-featured-grid{display:grid;grid-template-columns:repeat(var(--days),minmax(190px,1fr));min-width:950px}.schedule-featured{grid-column:var(--day-column);border:1px solid var(--line);border-left:4px solid var(--card-color);margin-top:2.25rem;padding:0}.schedule-featured>.schedule-card__clickable{padding:.55rem}.schedule-featured>.schedule-card__clickable>div:first-child{display:grid;grid-template-columns:minmax(86px,.7fr) 1fr;gap:.5rem}.schedule-featured small{display:block;color:var(--muted);margin-top:.25rem}.schedule-featured p{font-size:.86rem;font-style:italic;margin:.65rem 0 0;line-height:1.25}.schedule-empty{color:var(--muted);display:grid;place-items:center;height:100%;padding:1rem;text-align:center}
-@media(max-width:760px){.schedule-scroll{overflow:visible}.schedule-grid,.schedule-featured-grid{display:block;min-width:0;border:0}.schedule-day{border:1px solid var(--line);margin-bottom:1rem}.schedule-day-track{height:auto;position:static}.schedule-card{position:static;height:auto!important;min-height:0;border-left-width:4px;border-right:0;padding:0}.schedule-card>.schedule-card__clickable{padding:.75rem}.schedule-day h2{height:auto}.schedule-empty{height:auto}.schedule-featured{margin-top:1rem}.schedule-card__line{grid-template-columns:minmax(105px,.65fr) 1fr}}
+.schedule-table{--ink:#171717;--muted:#606060;--line:#202020;--paper:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif;max-width:1200px;margin:0 auto}
+.schedule-table *{box-sizing:border-box}.schedule-scroll{overflow-x:auto;padding-bottom:.5rem}.schedule-grid{display:grid;grid-template-columns:repeat(var(--days),minmax(190px,1fr));min-width:950px;border:1px solid var(--line)}.schedule-day{min-width:0;background:var(--paper);border-right:1px solid var(--line)}.schedule-day:last-child{border-right:0}.schedule-day h2{display:flex;align-items:baseline;justify-content:center;gap:.55rem;height:44px;margin:0;padding:.72rem .4rem;border-bottom:1px solid var(--line);font-size:.86rem;font-weight:500}.schedule-day__weekday{text-transform:uppercase;letter-spacing:.08em;font-size:.7rem;font-weight:500;color:var(--muted)}.schedule-day__date{font-size:.86rem;font-weight:500}.schedule-day-track{height:clamp(390px,44vw,440px);position:relative}.schedule-card{position:absolute;z-index:1;top:calc(var(--top) + 1px);height:calc(var(--height) - 2px);min-height:30px;left:0;right:0;padding:0;overflow:auto;overscroll-behavior:contain;background:#f2f2f2;background:color-mix(in srgb,var(--card-color) 16%,#fff);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.schedule-card__clickable{display:flex;flex-direction:column;justify-content:center;width:100%;height:100%;padding:.4rem .45rem;color:inherit;text-decoration:none}.schedule-card__clickable[href]:hover{background:rgba(0,0,0,.035)}.schedule-card__clickable[href]:focus-visible{outline:2px solid var(--line);outline-offset:-3px}.schedule-card__line{display:grid;grid-template-columns:minmax(92px,.72fr) minmax(0,1fr);gap:.38rem;align-items:baseline}.schedule-card time{white-space:nowrap;color:var(--muted);font-size:.73rem;font-weight:400;font-variant-numeric:tabular-nums}.schedule-card strong{min-width:0;font-size:.86rem;font-weight:500;line-height:1.18}.schedule-card__label{margin:.22rem 0 0;color:var(--muted);font-size:.76rem;line-height:1.2}.schedule-card__label small{font-size:.72rem}.schedule-card--break,.schedule-card--note{background:var(--paper)}.schedule-card--break strong,.schedule-card--note strong{font-weight:400}.schedule-featured-grid{display:grid;grid-template-columns:repeat(var(--days),minmax(190px,1fr));min-width:950px}.schedule-featured{grid-column:var(--day-column);margin-top:.75rem;padding:0;background:var(--paper);border:1px solid var(--line)}.schedule-featured>.schedule-card__clickable{display:block;padding:.5rem}.schedule-featured>.schedule-card__clickable>div:first-child{display:grid;grid-template-columns:minmax(92px,.72fr) minmax(0,1fr);gap:.38rem;align-items:baseline}.schedule-featured time{color:var(--muted);font-size:.73rem;font-weight:400;font-variant-numeric:tabular-nums}.schedule-featured strong{font-size:.86rem;font-weight:500}.schedule-featured small{display:block;margin-top:.2rem;color:var(--muted);font-size:.7rem}.schedule-featured p{margin:.4rem 0 0;color:var(--muted);font-size:.76rem;line-height:1.25}.schedule-empty{color:var(--muted);display:grid;place-items:center;height:100%;padding:1rem;text-align:center}
+.schedule-card{border-left:4px solid var(--card-color)}.schedule-card--break,.schedule-card--note{border-left-color:#aaa}.schedule-featured-grid{border:1px solid var(--line);border-top:0;background:var(--paper)}.schedule-featured-cell{min-width:0;min-height:76px;padding:.5rem;border-right:1px solid var(--line)}.schedule-featured-cell:last-child{border-right:0}.schedule-featured{grid-column:auto;margin:0;background:transparent;border:0;border-left:4px solid var(--card-color)}.schedule-featured+.schedule-featured{margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--line)}
+.schedule-day{display:flex;flex-direction:column}.schedule-day-featured{min-height:76px;padding:.5rem;border-top:1px solid var(--line)}.schedule-day-featured--empty{background:var(--paper)}.schedule-featured strong small{display:block;margin-top:.25rem;font-weight:400;line-height:1.3}
+@media(max-width:760px){.schedule-scroll{overflow:visible}.schedule-grid,.schedule-featured-grid{display:block;min-width:0;border:0}.schedule-day{margin-bottom:1rem;border:1px solid var(--line)}.schedule-day:last-child{border-right:1px solid var(--line)}.schedule-day-track{height:auto;position:static}.schedule-card{position:static;height:auto!important;min-height:46px;border-top:0;border-bottom:1px solid var(--line)}.schedule-card:last-child{border-bottom:0}.schedule-card>.schedule-card__clickable{padding:.72rem .6rem}.schedule-featured{margin:.75rem 0}.schedule-card__line{grid-template-columns:minmax(104px,.62fr) minmax(0,1fr)}.schedule-empty{height:auto}}
+@media(max-width:760px){.schedule-featured-cell{min-height:0;padding:0;border:1px solid var(--line);margin-bottom:.75rem}.schedule-featured-cell--empty{display:none}.schedule-featured{margin:0}.schedule-featured>.schedule-card__clickable{padding:.72rem .6rem}}
+@media(max-width:760px){.schedule-day-featured{min-height:0;padding:0;border-top:1px solid var(--line)}.schedule-day-featured--empty{display:none}.schedule-day-featured .schedule-featured{margin:0}.schedule-day-featured .schedule-featured>.schedule-card__clickable{padding:.72rem .6rem}}
 @media print{.schedule-table{max-width:none}.schedule-scroll{overflow:visible}.schedule-grid,.schedule-featured-grid{min-width:0}.schedule-card{overflow:hidden}}
 """.strip()
 
@@ -360,16 +363,26 @@ def render(events: list[Event], locale: str) -> str:
         cards = "".join(render_event(event, day_start, span) for event in regular if event.start.date() == event_date)
         if not cards:
             cards = '<p class="schedule-empty">No scheduled events</p>'
-        day_sections.append(
-            f'<section class="schedule-day"><h2>{esc(format_day(event_date, locale))}</h2>'
-            f'<div class="schedule-day-track">{cards}</div></section>'
+        special_items = "".join(
+            render_featured(event)
+            for event in featured
+            if event.start.date() == event_date
         )
-    featured_html = "".join(render_featured(event, dates.index(event.start.date()), locale) for event in featured)
+        special_footer = ""
+        if featured:
+            empty_class = " schedule-day-featured--empty" if not special_items else ""
+            special_footer = f'<div class="schedule-day-featured{empty_class}">{special_items}</div>'
+        weekday = DAY_NAMES[locale][event_date.weekday()]
+        date_label = f"{event_date.day} {MONTH_NAMES[locale][event_date.month - 1]} {event_date.year}"
+        day_sections.append(
+            f'<section class="schedule-day"><h2><span class="schedule-day__weekday">{esc(weekday)}</span>'
+            f'<span class="schedule-day__date">{esc(date_label)}</span></h2>'
+            f'<div class="schedule-day-track">{cards}</div>{special_footer}</section>'
+        )
     return (
-        f'<div class="schedule-table" role="region" aria-label="Event schedule">'
-        f'<div class="schedule-scroll" tabindex="0" aria-label="Scrollable schedule">'
+        f'<div id="school-timetable" class="schedule-table" role="region" aria-label="Event schedule">'
+        f'<div class="schedule-scroll" aria-label="Scrollable schedule">'
         f'<div class="schedule-grid" style="--days:{len(dates)}">{"".join(day_sections)}</div>'
-        f'{f"<div class=\"schedule-featured-grid\" style=\"--days:{len(dates)}\">{featured_html}</div>" if featured_html else ""}'
         f'</div></div>\n'
     )
 
@@ -414,7 +427,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("output", nargs="?", type=Path, help="generated Hugo HTML fragment")
     parser.add_argument("--sheet", help="Google spreadsheet ID")
     parser.add_argument("--gid", help="numeric gid of the Google Sheets tab")
-    parser.add_argument("--locale", choices=sorted(DAY_NAMES), default="en")
+    parser.add_argument("--locale", "--language", dest="locale", choices=sorted(DAY_NAMES), default="en")
     parser.add_argument("--css-output", type=Path, help="optionally write the table stylesheet")
     parser.add_argument(
         "--inject-into",
