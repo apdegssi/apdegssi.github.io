@@ -17,6 +17,7 @@ Summer school on **Analytic and Geometric Aspects of Evolutionary PDEs**. The po
 
 <br>
 
+All events will take place in the [Main Lecture Hall in Viale Francesco Crispi, 7, L'Aquila.](https://www.google.com/maps/dir//GSSI+-+Gran+Sasso+Science+Institute/@42.3448045,13.3960726)
 
 ### Registration & Financial Support
 

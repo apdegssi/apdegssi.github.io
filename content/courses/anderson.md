@@ -7,6 +7,7 @@ schoolname = "school2026"
 draft = false
 +++
 
+Lectures will take place in [Main Lecture Hall in Viale Francesco Crispi, 7, L'Aquila.](https://www.google.com/maps/dir//GSSI+-+Gran+Sasso+Science+Institute/@42.3448045,13.3960726)
 
 <br>
 <br>
