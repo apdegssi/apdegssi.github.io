@@ -10,6 +10,8 @@ aliases:
 
 Summer school on **Analytic and Geometric Aspects of Evolutionary PDEs**. The poster of the school can be found [here](/postergssi2026.pdf)
 
+{{< photo "/school2026.jpeg" >}}
+
 ### Event Schedule
 
 * Starts: Monday, September 14, 2026, at 9:00 AM

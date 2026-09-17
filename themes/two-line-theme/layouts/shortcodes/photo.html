@@ -1,0 +1,55 @@
+{{- $fname := .Get 0 -}}
+
+<link href="/css/photo.css" rel="stylesheet" />
+<figure class="conference-photo">
+  <button
+    id="photo-trigger"
+    class="photo-trigger"
+    type="button"
+    aria-haspopup="dialog"
+    aria-controls="photo-dialog"
+  >
+    <img
+        src="{{ $fname }}"
+      alt="Conference attendees gathered for a group photo"
+    />
+  </button>
+
+  <!-- <figcaption>Click the photo to enlarge it.</figcaption> -->
+</figure>
+
+<dialog id="photo-dialog" aria-label="Full-size conference group photo">
+  <button
+    id="photo-close"
+    class="photo-close"
+    type="button"
+    aria-label="Close photo"
+  >
+    &times;
+  </button>
+
+  <img
+    src="{{ $fname }}"
+    alt="Conference attendees gathered for a group photo"
+  />
+</dialog>
+
+<script>
+  const trigger = document.getElementById("photo-trigger");
+  const dialog = document.getElementById("photo-dialog");
+  const closeButton = document.getElementById("photo-close");
+
+  trigger.addEventListener("click", () => {
+    dialog.showModal();
+  });
+
+  closeButton.addEventListener("click", () => {
+    dialog.close();
+  });
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      dialog.close();
+    }
+  });
+</script>
