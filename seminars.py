@@ -365,7 +365,7 @@ def generate_school_events(gid):
                 else:
                     url = dictionary[key]['link']
 
-                url = f"{BASE_URL}/{url}"
+                url = f"{BASE_URL}/{url}".replace("//", "/")
 
 
                 color: str = row['color'] if row['color'] else dictionary[key]['color']

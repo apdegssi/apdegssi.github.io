@@ -487,7 +487,7 @@
     },
     {
         "title": "School - Analytic and Geometric aspects of evolutionary PDEs",
-        "start": "2026-09-14T09:00:00",
+        "start": "2026-09-14T08:30:00",
         "end": "2026-09-18T11:30:00",
         "allDay": false,
         "description": "",
@@ -564,7 +564,7 @@
         "allDay": false,
         "description": "",
         "color": "#c0892c",
-        "url": "https://apde.gssi.it//courses/marconi/"
+        "url": "https:/apde.gssi.it/courses/marconi/"
     },
     {
         "title": "Elgindi",
@@ -573,7 +573,7 @@
         "allDay": false,
         "description": "",
         "color": "#3f8f64",
-        "url": "https://apde.gssi.it//courses/elgindi/"
+        "url": "https:/apde.gssi.it/courses/elgindi/"
     },
     {
         "title": "Anderson",
@@ -582,7 +582,7 @@
         "allDay": false,
         "description": "",
         "color": "#3a6ea5",
-        "url": "https://apde.gssi.it//courses/anderson/"
+        "url": "https:/apde.gssi.it/courses/anderson/"
     },
     {
         "title": "Anderson",
@@ -591,7 +591,7 @@
         "allDay": false,
         "description": "",
         "color": "#3a6ea5",
-        "url": "https://apde.gssi.it//courses/anderson/"
+        "url": "https:/apde.gssi.it/courses/anderson/"
     },
     {
         "title": "Marconi",
@@ -600,7 +600,7 @@
         "allDay": false,
         "description": "",
         "color": "#c0892c",
-        "url": "https://apde.gssi.it//courses/marconi/"
+        "url": "https:/apde.gssi.it/courses/marconi/"
     },
     {
         "title": "Elgindi",
@@ -609,7 +609,7 @@
         "allDay": false,
         "description": "",
         "color": "#3f8f64",
-        "url": "https://apde.gssi.it//courses/elgindi/"
+        "url": "https:/apde.gssi.it/courses/elgindi/"
     },
     {
         "title": "Elgindi",
@@ -618,7 +618,7 @@
         "allDay": false,
         "description": "",
         "color": "#3f8f64",
-        "url": "https://apde.gssi.it//courses/elgindi/"
+        "url": "https:/apde.gssi.it/courses/elgindi/"
     },
     {
         "title": "Marconi",
@@ -627,7 +627,7 @@
         "allDay": false,
         "description": "",
         "color": "#c0892c",
-        "url": "https://apde.gssi.it//courses/marconi/"
+        "url": "https:/apde.gssi.it/courses/marconi/"
     },
     {
         "title": "Marconi",
@@ -636,7 +636,7 @@
         "allDay": false,
         "description": "",
         "color": "#c0892c",
-        "url": "https://apde.gssi.it//courses/marconi/"
+        "url": "https:/apde.gssi.it/courses/marconi/"
     },
     {
         "title": "Anderson",
@@ -645,7 +645,7 @@
         "allDay": false,
         "description": "",
         "color": "#3a6ea5",
-        "url": "https://apde.gssi.it//courses/anderson/"
+        "url": "https:/apde.gssi.it/courses/anderson/"
     },
     {
         "title": "Elgindi",
@@ -654,7 +654,7 @@
         "allDay": false,
         "description": "",
         "color": "#3f8f64",
-        "url": "https://apde.gssi.it//courses/elgindi/"
+        "url": "https:/apde.gssi.it/courses/elgindi/"
     },
     {
         "title": "Anderson",
@@ -663,6 +663,6 @@
         "allDay": false,
         "description": "",
         "color": "#3a6ea5",
-        "url": "https://apde.gssi.it//courses/anderson/"
+        "url": "https:/apde.gssi.it/courses/anderson/"
     }
 ]
