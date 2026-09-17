@@ -440,6 +440,9 @@ def generate_calendar_events():
             title = f"{speaker} - {_title}"
             hugo_url = f"/seminars/{slug}/"
             url = row.get("url", hugo_url)
+            if not url:
+                url = hugo_url
+            print(url)
             
             # print(title, start_iso, end_iso)
             all_events.append({
