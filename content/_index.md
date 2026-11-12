@@ -7,7 +7,7 @@ draft = false
 <br>
 
 #### Faculty
-Paolo Antonelli, Gabriele Benomio, Sara Daneri, Camillo De Lellis, Luigi De Rosa, Pierangelo Marcati, Stefano Modena, Eris Runa
+Paolo Antonelli, Gabriele Benomio, Sara Daneri, Camillo De Lellis, Luigi De Rosa, Anna Kubin, Pierangelo Marcati, Stefano Modena, Eris Runa, Antonio Tribuzio
 <br>
 #### PostDocs
 Jules Pitcho, Flavio Rossetti 
